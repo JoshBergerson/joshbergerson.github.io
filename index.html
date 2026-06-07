@@ -28,21 +28,21 @@
     .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); text-decoration: none; }
     .nav-logo span { color: var(--navy-mid); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
 
     /* HERO */
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 4rem 4rem; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,31,60,0.6) 0%, rgba(13,31,60,0.52) 50%, rgba(13,31,60,0.85) 85%, rgba(13,31,60,1) 100%), url('hero.jpg') center 40% / cover no-repeat; }
-    .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: rgba(255,255,255,0.75); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; position: relative; }
+    .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: rgba(255,255,255,0.92); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; position: relative; }
     .hero-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(5rem, 12vw, 12rem); line-height: 0.88; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; opacity: 0; animation: fadeUp 0.7s 0.35s forwards; position: relative; }
     .hero-name .grey-word { color: #b0bece; }
-    .hero-sub { margin-top: 2rem; font-size: clamp(1rem, 1.3vw, 1.25rem); color: rgba(235,242,250,0.95); max-width: 620px; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s 0.5s forwards; position: relative; }
+    .hero-sub { margin-top: 2rem; font-size: clamp(1.1rem, 1.5vw, 1.4rem); color: rgba(235,242,250,0.95); max-width: 620px; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s 0.5s forwards; position: relative; }
     .hero-sub strong { color: #fff; font-weight: 500; }
     .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; justify-content: center; opacity: 0; animation: fadeUp 0.7s 0.65s forwards; position: relative; }
-    .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--navy-mid); color: #fff; border: none; padding: 1rem 2.4rem; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.1s; display: inline-block; }
+    .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--navy-mid); color: #fff; border: none; padding: 1rem 2.4rem; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.1s; display: inline-block; }
     .btn-primary:hover { background: #1f4d87; transform: translateY(-1px); }
-    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: rgba(220,230,240,0.82); border: 1px solid rgba(255,255,255,0.32); padding: 1rem 2.4rem; text-decoration: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; display: inline-block; }
+    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: rgba(220,230,240,0.82); border: 1px solid rgba(255,255,255,0.32); padding: 1rem 2.4rem; text-decoration: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; display: inline-block; }
     .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.75); }
 
     /* TICKER */
@@ -52,7 +52,7 @@
     .ticker-item .dot { color: var(--navy-mid); margin-right: 2rem; }
 
     /* SECTION BASE  alternating bg for contrast */
-    section { padding: 6rem max(4rem, calc((100vw - 1600px) / 2 + 4rem)); position: relative; }
+    section { padding: 6rem 5rem; position: relative; }
     section:nth-of-type(odd)  { background: var(--white); border-top: 1px solid var(--border); }
     section:nth-of-type(even) { background: var(--bg);    border-top: 1px solid var(--border); }
     .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--navy); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
@@ -68,8 +68,8 @@
     .about-text p strong { color: var(--navy); font-weight: 600; }
     .about-details { margin-top: 2rem; border-top: 1px solid var(--border); }
     .about-detail { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); gap: 2rem; }
-    .detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
-    .detail-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--navy); }
+    .detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); }
+    .detail-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--black); }
 
     /* MOTORSPORT */
     .moto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -88,8 +88,8 @@
 
     /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .project-card { background: var(--white); border: 1px solid var(--border); cursor: pointer; overflow: hidden; transition: border-color 0.25s, transform 0.2s; display: flex; flex-direction: column; }
-    .project-card:hover { border-color: var(--navy-mid); transform: translateY(-3px); }
+    .project-card { background: var(--white); border: none; cursor: pointer; overflow: hidden; transition: transform 0.2s; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(13,31,60,0.08); }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(13,31,60,0.14); }
     .project-cover { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; filter: grayscale(20%) brightness(0.92); transition: filter 0.35s, transform 0.35s; }
     .project-card:hover .project-cover { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
     .project-cover-wrap { overflow: hidden; position: relative; }
@@ -129,18 +129,16 @@
     .lb-spec-val { font-size: 1.05rem; color: var(--navy); font-weight: 500; }
 
     /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
-    .skills-grid > div { background: transparent; border: none; outline: none; box-shadow: none; padding: 0; }
-    #skills * { border: none !important; outline: none !important; box-shadow: none !important; }
-    #skills .skill-group-title { border-bottom: none; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .skills-grid > div { background: var(--white); border: 1px solid var(--border); padding: 2rem 2.25rem; }
     .skill-group-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); margin-bottom: 1.25rem; padding-bottom: 0.65rem; }
-    .skill-item { font-size: 1.1em; color: var(--black); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem; background: transparent !important; border: none !important; outline: none !important; box-shadow: none !important; }
+    .skill-item { font-size: 1.1em; color: var(--black); padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem; }
     .skill-item::before { content: ''; width: 6px; height: 6px; background: var(--navy-mid); flex-shrink: 0; }
 
     /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; }
     .exp-item { display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--border); padding: 2.5rem 0; }
-    .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--grey); padding-top: 0.2rem; letter-spacing: 0.04em; }
+    .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--black); padding-top: 0.2rem; letter-spacing: 0.04em; font-weight: 500; }
     .exp-role { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; color: var(--navy); }
     .exp-company { font-size: 1em; color: var(--navy); margin-bottom: 0.85rem; }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -188,7 +186,7 @@
     .arrow { font-size: 1.2rem; transition: transform 0.2s; color: var(--grey); }
     .contact-link:hover .arrow { transform: translateX(4px); color: var(--navy-mid); }
 
-    footer { padding: 1.75rem max(2rem, calc((100vw - 1600px) / 2 + 2rem)); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--navy); }
+    footer { padding: 1.75rem 5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--navy); }
     footer .left { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: #1a3f6f; letter-spacing: 0.08em; }
     footer .right { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; }
 
@@ -593,42 +591,42 @@
     <div class="section-label reveal">// 05  Extracurricular</div>
     <h2 class="section-title reveal">Beyond<br>Engineering</h2>
     <div class="gallery-strip-wrap reveal">
-            <div class="gallery-strip" id="galleryStrip">
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Christchurch Marathon" /><div class="gallery-thumb-cap">Running the Christchurch Marathon</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_running.jpg','Running 100km for mens mental health (Run72)')"><img src="gal_running.jpg" alt="Run72" /><div class="gallery-thumb-cap">Running 100km for mens mental health (Run72)</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest" /><div class="gallery-thumb-cap">Crest to Crest team — 5-day endurance race</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_band.jpg','Playing the drums live with my band')"><img src="gal_band.jpg" alt="Drums live" /><div class="gallery-thumb-cap">Playing the drums live with my band</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_shooting.jpg','U21 National Single Barrel Champion')"><img src="gal_shooting.jpg" alt="U21 National Champion" /><div class="gallery-thumb-cap">U21 National Single Barrel Champion</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_prize.jpg','Voted king and queen of Mechatronics')"><img src="gal_prize.jpg" alt="King and Queen of Mechatronics" /><div class="gallery-thumb-cap">Voted king and queen of Mechatronics</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping" /><div class="gallery-thumb-cap">Camping with friends</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_tonga_dance.jpg','Performing the Maka at a resort in Tonga')"><img src="gal_tonga_dance.jpg" alt="Maka in Tonga" /><div class="gallery-thumb-cap">Performing the Maka at a resort in Tonga</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Alpine lake" /><div class="gallery-thumb-cap">Tramping to an alpine lake</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_football.jpg','Mechatronics vs Mechanical football')"><img src="gal_football.jpg" alt="Football" /><div class="gallery-thumb-cap">Mechatronics vs Mechanical football</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student Melbourne" /><div class="gallery-thumb-cap">Formula Student competition in Melbourne</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_shootteam.jpg','Winning the Super 8 Shield with the PNBHS clay shooting team')"><img src="gal_shootteam.jpg" alt="Super 8 Shield" /><div class="gallery-thumb-cap">Winning the Super 8 Shield with PNBHS</div></div>
+                  <div class="gallery-strip" id="galleryStrip">
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_running.jpg','Running 100km for mens mental health (Run72)')"><img src="gal_running.jpg" alt="Running 100km for mens mental health (Ru..." /><div class="gallery-thumb-cap">Running 100km for mens mental health (Run72)</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_shooting.jpg','U21 National Single Barrel Champion')"><img src="gal_shooting.jpg" alt="U21 National Single Barrel Champion" /><div class="gallery-thumb-cap">U21 National Single Barrel Champion</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_band.jpg','Playing the drums live with my band')"><img src="gal_band.jpg" alt="Playing the drums live with my band" /><div class="gallery-thumb-cap">Playing the drums live with my band</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_prize.jpg','Voted king and queen of Mechatronics')"><img src="gal_prize.jpg" alt="Voted king and queen of Mechatronics" /><div class="gallery-thumb-cap">Voted king and queen of Mechatronics</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Running the Christchurch Marathon" /><div class="gallery-thumb-cap">Running the Christchurch Marathon</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_tonga_night.jpg','Night out with the Tonga team')"><img src="gal_tonga_night.jpg" alt="Night out with the Tonga team" /><div class="gallery-thumb-cap">Night out with the Tonga team</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_tonga_dance.jpg','Performing the Maka at a resort in Tonga')"><img src="gal_tonga_dance.jpg" alt="Performing the Maka at a resort in Tonga" /><div class="gallery-thumb-cap">Performing the Maka at a resort in Tonga</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team — 5-day endurance ra..." /><div class="gallery-thumb-cap">Crest to Crest team — 5-day endurance race</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping with friends" /><div class="gallery-thumb-cap">Camping with friends</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Tramping to an alpine lake" /><div class="gallery-thumb-cap">Tramping to an alpine lake</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student competition in Melbourne" /><div class="gallery-thumb-cap">Formula Student competition in Melbourne</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_shootteam.jpg','Winning the Super 8 Shield with the PNBHS clay shooting team')"><img src="gal_shootteam.jpg" alt="Winning the Super 8 Shield with the PNBH..." /><div class="gallery-thumb-cap">Winning the Super 8 Shield with the PNBHS clay shooting team</div></div>
       </div>
       <button class="gallery-expand-btn" onclick="toggleGallery(this)">Show all photos ↓</button>
     </div>
 
-        <div class="gallery-expanded" id="galleryExpanded">
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Marathon" /><div class="gallery-grid-cap">Running the Christchurch Marathon</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_running.jpg','Running 100km for mens mental health (Run72)')"><img src="gal_running.jpg" alt="Run72" /><div class="gallery-grid-cap">Running 100km for mens mental health (Run72)</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest" /><div class="gallery-grid-cap">Crest to Crest team — 5-day endurance race</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_band.jpg','Playing the drums live with my band')"><img src="gal_band.jpg" alt="Drums" /><div class="gallery-grid-cap">Playing the drums live with my band</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_shooting.jpg','U21 National Single Barrel Champion')"><img src="gal_shooting.jpg" alt="U21 Champion" /><div class="gallery-grid-cap">U21 National Single Barrel Champion</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_prize.jpg','Voted king and queen of Mechatronics')"><img src="gal_prize.jpg" alt="King and Queen of Mechatronics" /><div class="gallery-grid-cap">Voted king and queen of Mechatronics</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping" /><div class="gallery-grid-cap">Camping with friends</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_dance.jpg','Performing the Maka at a resort in Tonga')"><img src="gal_tonga_dance.jpg" alt="Maka Tonga" /><div class="gallery-grid-cap">Performing the Maka at a resort in Tonga</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Alpine lake" /><div class="gallery-grid-cap">Tramping to an alpine lake</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_football.jpg','Mechatronics vs Mechanical football')"><img src="gal_football.jpg" alt="Football" /><div class="gallery-grid-cap">Mechatronics vs Mechanical football</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student Melbourne" /><div class="gallery-grid-cap">Formula Student competition in Melbourne</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_shootteam.jpg','Winning the Super 8 Shield with the PNBHS clay shooting team')"><img src="gal_shootteam.jpg" alt="Super 8 Shield" /><div class="gallery-grid-cap">Winning the Super 8 Shield with PNBHS</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_jazzband.jpg','The PNBHS Stage Band')"><img src="gal_jazzband.jpg" alt="Stage Band" /><div class="gallery-grid-cap">The PNBHS Stage Band</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_night.jpg','Night out with the Tonga team')"><img src="gal_tonga_night.jpg" alt="Tonga night" /><div class="gallery-grid-cap">Night out with the Tonga team</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_meet.jpg','Meeting the Minister of Health in Tonga')"><img src="gal_tonga_meet.jpg" alt="Minister of Health" /><div class="gallery-grid-cap">Meeting the Minister of Health in Tonga</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_waste.jpg','Cleaning up medical waste at the Vei-tongo storage facility')"><img src="gal_tonga_waste.jpg" alt="Medical waste cleanup" /><div class="gallery-grid-cap">Cleaning up medical waste at Vei-tongo</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_biomed.jpg','Biomedical simulation lab at Manawa')"><img src="gal_biomed.jpg" alt="Biomed lab" /><div class="gallery-grid-cap">Biomedical simulation lab at Manawa</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_team.jpg','Teaching biomedical technicians to use Arduino')"><img src="gal_tonga_team.jpg" alt="Arduino teaching" /><div class="gallery-grid-cap">Teaching biomedical technicians to use Arduino</div></div>
+            <div class="gallery-expanded" id="galleryExpanded">
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_running.jpg','Running 100km for mens mental health (Run72)')"><img src="gal_running.jpg" alt="Running 100km for mens mental health (Ru..." /><div class="gallery-grid-cap">Running 100km for mens mental health (Run72)</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_shooting.jpg','U21 National Single Barrel Champion')"><img src="gal_shooting.jpg" alt="U21 National Single Barrel Champion" /><div class="gallery-grid-cap">U21 National Single Barrel Champion</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_band.jpg','Playing the drums live with my band')"><img src="gal_band.jpg" alt="Playing the drums live with my band" /><div class="gallery-grid-cap">Playing the drums live with my band</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_prize.jpg','Voted king and queen of Mechatronics')"><img src="gal_prize.jpg" alt="Voted king and queen of Mechatronics" /><div class="gallery-grid-cap">Voted king and queen of Mechatronics</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Running the Christchurch Marathon" /><div class="gallery-grid-cap">Running the Christchurch Marathon</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_night.jpg','Night out with the Tonga team')"><img src="gal_tonga_night.jpg" alt="Night out with the Tonga team" /><div class="gallery-grid-cap">Night out with the Tonga team</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_dance.jpg','Performing the Maka at a resort in Tonga')"><img src="gal_tonga_dance.jpg" alt="Performing the Maka at a resort in Tonga" /><div class="gallery-grid-cap">Performing the Maka at a resort in Tonga</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team — 5-day endurance ra..." /><div class="gallery-grid-cap">Crest to Crest team — 5-day endurance race</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping with friends" /><div class="gallery-grid-cap">Camping with friends</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Tramping to an alpine lake" /><div class="gallery-grid-cap">Tramping to an alpine lake</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student competition in Melbourne" /><div class="gallery-grid-cap">Formula Student competition in Melbourne</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_shootteam.jpg','Winning the Super 8 Shield with the PNBHS clay shooting team')"><img src="gal_shootteam.jpg" alt="Winning the Super 8 Shield with the PNBH..." /><div class="gallery-grid-cap">Winning the Super 8 Shield with the PNBHS clay shooting team</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_jazzband.jpg','The PNBHS Stage Band')"><img src="gal_jazzband.jpg" alt="The PNBHS Stage Band" /><div class="gallery-grid-cap">The PNBHS Stage Band</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_meet.jpg','Meeting the Minister of Health in Tonga')"><img src="gal_tonga_meet.jpg" alt="Meeting the Minister of Health in Tonga" /><div class="gallery-grid-cap">Meeting the Minister of Health in Tonga</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_waste.jpg','Cleaning up medical waste at the Vei-tongo storage facility')"><img src="gal_tonga_waste.jpg" alt="Cleaning up medical waste at the Vei-ton..." /><div class="gallery-grid-cap">Cleaning up medical waste at the Vei-tongo storage facility</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_biomed.jpg','Biomedical simulation lab at Manawa')"><img src="gal_biomed.jpg" alt="Biomedical simulation lab at Manawa" /><div class="gallery-grid-cap">Biomedical simulation lab at Manawa</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_team.jpg','Teaching biomedical technicians to use Arduino')"><img src="gal_tonga_team.jpg" alt="Teaching biomedical technicians to use A..." /><div class="gallery-grid-cap">Teaching biomedical technicians to use Arduino</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_football.jpg','Mechatronics vs Mechanical football')"><img src="gal_football.jpg" alt="Mechatronics vs Mechanical football" /><div class="gallery-grid-cap">Mechatronics vs Mechanical football</div></div>
     </div>
   </section>
 

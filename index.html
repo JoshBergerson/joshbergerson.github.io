@@ -46,29 +46,22 @@
     .nav-links a:hover { color: var(--white); }
 
     /* HERO */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; position: relative; overflow: hidden; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 3rem; position: relative; overflow: hidden; }
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.65) 55%, rgba(10,10,10,1) 100%),
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,0,29,0.1) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.9) 85%, rgba(10,10,10,1) 100%),
         url('hero.jpg') center 40% / cover no-repeat;
     }
-    .hero::after { content: ''; position: absolute; top: 0; bottom: 0; right: 18%; width: 3px; background: linear-gradient(180deg, transparent, var(--red) 30%, var(--red) 70%, transparent); opacity: 0.35; }
-    .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
-    .hero-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4.5rem, 11vw, 10rem); line-height: 0.92; letter-spacing: -0.01em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.7s 0.35s forwards; }
-    .hero-name .outline { -webkit-text-stroke: 1px rgba(240,240,240,0.3); color: transparent; }
-    .hero-sub { margin-top: 2rem; font-size: 1.15rem; color: var(--grey); max-width: 500px; line-height: 1.75; opacity: 0; animation: fadeUp 0.7s 0.5s forwards; }
-    .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.7s 0.65s forwards; }
+    .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; position: relative; }
+    .hero-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(6rem, 16vw, 15rem); line-height: 0.88; letter-spacing: -0.01em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.7s 0.35s forwards; position: relative; color: var(--white); }
+    .hero-sub { margin-top: 2.2rem; font-size: 1.2rem; color: rgba(240,240,240,0.8); max-width: 580px; line-height: 1.75; opacity: 0; animation: fadeUp 0.7s 0.5s forwards; position: relative; text-shadow: 0 1px 12px rgba(0,0,0,0.9); }
+    .hero-sub strong { color: var(--white); }
+    .hero-cta { margin-top: 2.8rem; display: flex; gap: 1rem; align-items: center; justify-content: center; opacity: 0; animation: fadeUp 0.7s 0.65s forwards; position: relative; }
     .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--red); color: #fff; border: none; padding: 1rem 2.2rem; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.1s; display: inline-block; }
     .btn-primary:hover { background: #ff0022; transform: translateY(-1px); }
-    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: var(--grey); border: 1px solid var(--border); padding: 1rem 2.2rem; text-decoration: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; display: inline-block; }
-    .btn-ghost:hover { color: var(--white); border-color: #555; }
-    .hero-stats { position: absolute; right: 3rem; bottom: 5rem; display: flex; flex-direction: column; gap: 2rem; opacity: 0; animation: fadeIn 0.8s 0.9s forwards; }
-    .stat { text-align: right; }
-    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2.6rem; color: var(--white); line-height: 1; }
-    .stat-num span { color: var(--red); }
-    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--grey); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
+    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: rgba(240,240,240,0.75); border: 1px solid rgba(255,255,255,0.3); padding: 1rem 2.2rem; text-decoration: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; display: inline-block; }
+    .btn-ghost:hover { color: var(--white); border-color: #999; }
 
     /* SECTION BASE */
     section { padding: 6rem 3rem; border-top: 1px solid var(--border); position: relative; }
@@ -154,7 +147,9 @@
     .lb-body strong { color: var(--white); font-weight: 500; }
     .lb-body h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin: 1.5rem 0 0.6rem; }
     .lb-imgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .lb-imgs figure { display: flex; flex-direction: column; gap: 0; }
     .lb-imgs img { width: 100%; object-fit: cover; border: 1px solid var(--border); display: block; }
+    .lb-imgs figcaption { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); padding: 0.5rem 0.25rem; border-bottom: 1px solid var(--border); }
     .lb-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 2rem; border: 1px solid var(--border); }
     .lb-spec { padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
     .lb-spec:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -244,16 +239,11 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-tag">// Mechatronics Engineer — Christchurch, NZ</div>
-    <h1 class="hero-name">Josh<br><span class="outline">Berger</span>son</h1>
-    <p class="hero-sub">Fourth-year Mechatronics Engineering student at the University of Canterbury. Electrical Team Lead, UC Motorsport — <strong style="color:var(--white)">1st Place, Formula Student Australasia 2025.</strong></p>
+    <h1 class="hero-name">Josh<br>Bergerson</h1>
+    <p class="hero-sub">Fourth-year Mechatronics Engineering student at the University of Canterbury. Electrical Team Lead, UC Motorsport — <strong>1st Place, Formula Student Australasia 2025.</strong></p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View Work</a>
       <a href="mailto:joshkbergerson@gmail.com" class="btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">1<span>st</span></div><div class="stat-label">Formula Student Aus. 2025</div></div>
-      <div class="stat"><div class="stat-num">7.72<span>/9</span></div><div class="stat-label">Current GPA</div></div>
-      <div class="stat"><div class="stat-num">600<span>V</span></div><div class="stat-label">Accumulator Under Dev.</div></div>
     </div>
   </section>
 
@@ -290,7 +280,7 @@
           <div class="about-detail"><span class="detail-label">Degree</span><span class="detail-val">BE (Hons) Mechatronics — UC</span></div>
           <div class="about-detail"><span class="detail-label">GPA</span><span class="detail-val">7.72 / 9.0</span></div>
           <div class="about-detail"><span class="detail-label">Based</span><span class="detail-val">Christchurch, New Zealand</span></div>
-          <div class="about-detail"><span class="detail-label">Available</span><span class="detail-val">Graduate roles, 2026</span></div>
+          <div class="about-detail"><span class="detail-label">Available</span><span class="detail-val">Graduate roles &amp; internships, 2026</span></div>
         </div>
       </div>
     </div>
@@ -324,7 +314,7 @@
 
       <div class="project-card" onclick="openLightbox('accumulator')">
         <div class="project-cover-wrap">
-          <img src="ucm_cover.jpg" alt="600V Pouch Cell Accumulator" class="project-cover" />
+          <img src="ucm_4.jpg" alt="600V Pouch Cell Accumulator — CAD render lid off" class="project-cover" />
         </div>
         <div class="project-body">
           <div class="project-num">// 01</div>
@@ -334,51 +324,51 @@
         </div>
       </div>
 
-      <div class="project-card" onclick="openLightbox('formulastudent')">
+      <div class="project-card" onclick="openLightbox('tonga')">
         <div class="project-cover-wrap">
-          <img src="fs_cover.jpg" alt="Formula Student E13 at scrutineering" class="project-cover" style="object-position: center 60%;" />
+          <img src="tonga_new_cover.jpg" alt="Tonga — nurse training autoclave" class="project-cover" />
         </div>
         <div class="project-body">
           <div class="project-num">// 02</div>
-          <div class="project-title">Formula Student — 1st Place</div>
-          <div class="project-desc">Electrical Team Lead on the UCM car that won Formula Student Australasia 2025.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Electrical Systems</span><span class="tag">Formula Student</span></div>
+          <div class="project-title">Biomedical Engineering Solutions in Tonga</div>
+          <div class="project-desc">Deployed to Vaiola Hospital, Tonga. Increased operational autoclaves on the main island from one to six.</div>
+          <div class="project-tags"><span class="tag">Field Engineering</span><span class="tag">Problem Solving</span><span class="tag">Low-Resource</span></div>
         </div>
       </div>
 
       <div class="project-card" onclick="openLightbox('robocup')">
         <div class="project-cover-wrap">
-          <img src="robocup_cover.jpg" alt="RoboCup" class="project-cover" />
+          <img src="robocup_2.jpg" alt="RoboCup sorting mechanism" class="project-cover" />
         </div>
         <div class="project-body">
           <div class="project-num">// 03</div>
-          <div class="project-title">Autonomous Robot — RoboCup</div>
+          <div class="project-title">RoboCup Winning Robot</div>
           <div class="project-desc">Programmed a fully autonomous robot that took 1st place in the 2025 UC RoboCup Competition.</div>
           <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Robotics</span></div>
         </div>
       </div>
 
-      <div class="project-card" onclick="openLightbox('solarcar')">
+      <div class="project-card" onclick="openLightbox('formulastudent')">
         <div class="project-cover-wrap">
-          <img src="solar_cover.jpg" alt="Solar Car" class="project-cover" />
+          <img src="fs_cover.jpg" alt="Formula Student E13 at scrutineering" class="project-cover" style="object-position: center 60%;" />
         </div>
         <div class="project-body">
           <div class="project-num">// 04</div>
-          <div class="project-title">Solar Car — Buck Converter PCB</div>
-          <div class="project-desc">Designed a PCB with MOSFET switching to improve buck converter efficiency. 1st place result.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">PCB Design</span><span class="tag">Power Electronics</span></div>
+          <div class="project-title">Formula Student Australasia Champions</div>
+          <div class="project-desc">Electrical Team Lead on the UCM car that won Formula Student Australasia 2025.</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Electrical Systems</span><span class="tag">Formula Student</span></div>
         </div>
       </div>
 
-      <div class="project-card" onclick="openLightbox('tonga')">
+      <div class="project-card" onclick="openLightbox('solarcar')">
         <div class="project-cover-wrap">
-          <img src="tonga_cover.jpg" alt="Tonga Biomedical" class="project-cover" />
+          <img src="solar_winners.jpg" alt="Solar Car winners" class="project-cover" style="object-position: center 30%;" />
         </div>
         <div class="project-body">
           <div class="project-num">// 05</div>
-          <div class="project-title">Biomedical Engineering — Tonga</div>
-          <div class="project-desc">Deployed to Vaiola Hospital, Tonga. Increased operational autoclaves on the main island from one to six.</div>
-          <div class="project-tags"><span class="tag">Field Engineering</span><span class="tag">Problem Solving</span><span class="tag">Low-Resource</span></div>
+          <div class="project-title">Solar Car Race Winner</div>
+          <div class="project-desc">Designed a PCB with MOSFET switching to improve buck converter efficiency. 1st place result.</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">PCB Design</span><span class="tag">Power Electronics</span></div>
         </div>
       </div>
 
@@ -390,7 +380,7 @@
   <div class="lightbox" id="lb-accumulator">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('accumulator')">✕ Close</button>
-      <img src="ucm_cover.jpg" class="lb-hero-img" alt="Accumulator" />
+      <img src="ucm_4.jpg" class="lb-hero-img" alt="Accumulator CAD — lid off" />
       <div class="lb-content">
         <div class="lb-tag">// UCM — 2026 — In Progress</div>
         <div class="lb-title">600V Pouch Cell Accumulator</div>
@@ -408,9 +398,8 @@
           <div class="lb-spec"><div class="lb-spec-label">Competition</div><div class="lb-spec-val">China &amp; Australia</div></div>
         </div>
         <div class="lb-imgs">
-          <img src="ucm_2.jpg" alt="Module detail" />
-          <img src="ucm_3.jpg" alt="Clamping system" />
-          <img src="ucm_4.jpg" alt="Closer look" />
+          <figure><img src="ucm_module.jpg" alt="Module prototype" /><figcaption>Module prototype</figcaption></figure>
+          <figure><img src="ucm_pouchcell.jpg" alt="Pouch cell" /><figcaption>Pouch cell</figcaption></figure>
         </div>
       </div>
     </div>
@@ -419,7 +408,7 @@
   <div class="lightbox" id="lb-formulastudent">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('formulastudent')">✕ Close</button>
-      <img src="fs_cover.jpg" class="lb-hero-img" alt="Formula Student — car at scrutineering" />
+      <img src="fs_cover.jpg" class="lb-hero-img" alt="Formula Student — car at scrutineering" style="object-position: center 60%;" />
       <div class="lb-content">
         <div class="lb-tag">// Formula Student Australasia — 1st Place 2025</div>
         <div class="lb-title">Formula Student<br>Australasia 2025</div>
@@ -440,8 +429,8 @@
           <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
         </div>
         <div class="lb-imgs">
-          <img src="fs_workshop.jpg" alt="Late night electrical work on the high voltage system" />
-          <img src="fs_raceday.jpg" alt="UCM E13 at Calder Park during rain testing" />
+          <figure><img src="fs_workshop.jpg" alt="Accumulator charging at track" /><figcaption>Accumulator charging at track</figcaption></figure>
+          <figure><img src="fs_raceday.jpg" alt="Rain testing" /><figcaption>Rain testing</figcaption></figure>
         </div>
       </div>
     </div>
@@ -468,8 +457,8 @@
           <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
         </div>
         <div class="lb-imgs">
-          <img src="robocup_2.jpg" alt="Front sensors" />
-          <img src="robocup_3.jpg" alt="Plastic sort task" />
+          <figure><img src="robocup_3.jpg" alt="Sorting mechanism" /><figcaption>Sorting mechanism</figcaption></figure>
+          <figure><img src="robocup_dreamteam.jpg" alt="The dream team" /><figcaption>The dream team</figcaption></figure>
         </div>
       </div>
     </div>
@@ -478,7 +467,7 @@
   <div class="lightbox" id="lb-solarcar">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('solarcar')">✕ Close</button>
-      <img src="solar_cover.jpg" class="lb-hero-img" alt="Solar Car" />
+      <img src="solar_winners.jpg" class="lb-hero-img" alt="Solar Car winners" style="object-position: center 30%;" />
       <div class="lb-content">
         <div class="lb-tag">// UC Solar Car Challenge — 1st Place 2025</div>
         <div class="lb-title">Solar Car<br>Buck Converter PCB</div>
@@ -496,7 +485,8 @@
           <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
         </div>
         <div class="lb-imgs">
-          <img src="solar_2.jpg" alt="Solar car" />
+          <figure><img src="solar_2.jpg" alt="Winning solar car" /><figcaption>Winning solar car</figcaption></figure>
+          <figure><img src="solar_cover.jpg" alt="Buck converter schematic" /><figcaption>Buck converter schematic</figcaption></figure>
         </div>
       </div>
     </div>
@@ -505,7 +495,7 @@
   <div class="lightbox" id="lb-tonga">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('tonga')">✕ Close</button>
-      <img src="tonga_cover.jpg" class="lb-hero-img" alt="Tonga" />
+      <img src="tonga_new_cover.jpg" class="lb-hero-img" alt="Tonga — nurse training" />
       <div class="lb-content">
         <div class="lb-tag">// Vaiola Hospital, Tonga — Nov 2025 – Feb 2026</div>
         <div class="lb-title">Biomedical Engineering<br>Tonga</div>
@@ -524,11 +514,13 @@
           <div class="lb-spec"><div class="lb-spec-label">Outcome</div><div class="lb-spec-val">1 → 6 operational autoclaves</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Team</div><div class="lb-spec-val">8-person UC engineering team</div></div>
         </div>
+        <div class="lb-imgs">
+          <figure><img src="tonga_autoclave.jpg" alt="Troubleshooting autoclave" /><figcaption>Troubleshooting autoclave</figcaption></figure>
+          <figure><img src="tonga_nurses.jpg" alt="Nurse training in Mu'a Clinic" /><figcaption>Nurse training in Mu'a Clinic</figcaption></figure>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- EXPERIENCE -->
   <section id="experience" style="background: var(--bg2);">
     <div class="section-label reveal">// 03 — Experience</div>
     <h2 class="section-title reveal">Work History</h2>
@@ -601,7 +593,7 @@
     <h2 class="section-title reveal">Get In<br>Touch</h2>
     <div class="contact-grid reveal">
       <div>
-        <p class="contact-intro">I'm currently completing my final year at UC and actively looking for graduate mechanical and mechatronics engineering roles — particularly in the automotive and motorsport space. Feel free to reach out.</p>
+        <p class="contact-intro">I'm currently completing my final year at UC and actively looking for graduate and internship roles in mechanical and mechatronics engineering — particularly in the automotive and motorsport space. Feel free to reach out.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:joshkbergerson@gmail.com" class="contact-link">

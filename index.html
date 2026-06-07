@@ -34,7 +34,7 @@
 
     /* HERO */
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 4rem 4rem; position: relative; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,38,38,0.72) 0%, rgba(13,38,38,0.72) 50%, rgba(13,38,38,0.9) 85%, rgba(13,38,38,1) 100%), url('hero.jpg') center 40% / cover no-repeat; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,38,38,0.35) 0%, rgba(13,38,38,0.45) 50%, rgba(13,38,38,0.82) 85%, rgba(13,38,38,1) 100%), url('hero.jpg') center 40% / cover no-repeat; }
     .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: rgba(255,255,255,0.92); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.6rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; position: relative; }
     .hero-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(5rem, 12vw, 12rem); line-height: 0.88; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; opacity: 0; animation: fadeUp 0.7s 0.35s forwards; position: relative; }
     .hero-name .grey-word { color: rgba(255,255,255,0.75); }
@@ -91,11 +91,11 @@
     /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .project-card { background: var(--white); border: none; cursor: pointer; overflow: hidden; transition: transform 0.2s; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(13,38,38,0.08); }
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(13,38,38,0.14); }
+    .project-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(13,38,38,0.12); }
     .project-cover { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; filter: grayscale(20%) brightness(0.92); transition: filter 0.35s, transform 0.35s; }
     .project-card:hover .project-cover { filter: grayscale(0%) brightness(1); transform: scale(1.04); }
     .project-cover-wrap { overflow: hidden; position: relative; }
-    .project-cover-wrap::after { content: 'VIEW PROJECT →'; position: absolute; inset: 0; background: rgba(13,31,60,0.82); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.2em; color: #fff; opacity: 0; transition: opacity 0.25s; }
+    .project-cover-wrap::after { content: 'VIEW PROJECT →'; position: absolute; inset: 0; background: rgba(13,38,38,0.82); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.2em; color: #fff; opacity: 0; transition: opacity 0.25s; }
     .project-card:hover .project-cover-wrap::after { opacity: 1; }
     .project-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
     .project-num { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); margin-bottom: 0.35rem; }
@@ -225,7 +225,68 @@
       .lb-specs { grid-template-columns: 1fr; }
       .lb-spec:nth-child(odd) { border-right: none; }
     }
-  </style>
+  
+    /* Teal accent on about photo */
+    .about-photo-border { border-color: #0f6e56; border-width: 2px; }
+
+    /* Teal top stripe on section labels */
+    .section-label { display: inline-block; border-bottom: 2px solid #0f6e56; padding-bottom: 0.2rem; margin-bottom: 1rem; }
+
+    /* Motorsport section - teal left border stripe on section */
+
+    /* Teal accent on skill cards top border */
+    .skills-grid > div { border-top: 3px solid #0f6e56 !important; }
+
+    /* Experience role - teal accent line */
+    .exp-role { padding-left: 0.9rem; border-left: 3px solid #0f6e56; }
+
+    /* Gallery section */
+
+    /* Footer teal top stripe */
+    footer { border-top: 3px solid #0f6e56 !important; }
+
+    /* Contact section - teal left border on links block */
+    .contact-links { border-left: 3px solid #0f6e56; padding-left: 1.5rem; }
+
+    /* Ticker dot brighter teal */
+    .ticker-item .dot { color: #1d9e75; }
+
+    /* Section title - teal accent on first word via a wrapper trick */
+    /* Just make hot tags pop more */
+    .tag.hot { color: #0f6e56; font-weight: 700; }
+
+    /* Project card top accent on hover */
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #0f6e56; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    /* Moto badge left border brighter */
+    .moto-badge { border-left-color: #0f6e56 !important; border-left-width: 3px; }
+
+    /* Motorsport: diagonal teal stripe in top-right corner */
+    #motorsport::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; bottom: 0; background: #0f6e56; opacity: 0.5; }
+
+    /* Gallery: alternating teal/concrete grid lines as subtle texture */
+    #gallery { background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 79px,
+        rgba(15,110,86,0.06) 79px,
+        rgba(15,110,86,0.06) 80px
+    ) !important; }
+
+    /* Skills: concrete with subtle teal gradient wash at top */
+    #skills { background: linear-gradient(160deg, rgba(15,110,86,0.06) 0%, transparent 40%) !important; }
+
+    /* About section: teal corner accent top-left */
+    #about::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #0f6e56 0%, transparent 60%); }
+
+    /* Contact: teal gradient wash bottom-right */
+    #contact { background: linear-gradient(135deg, transparent 60%, rgba(15,110,86,0.07) 100%) !important; }
+
+    /* Projects: very subtle teal dot pattern */
+    #projects { background: radial-gradient(circle, rgba(15,110,86,0.05) 1px, transparent 1px) !important;
+                background-size: 28px 28px !important; }
+</style>
 </head>
 <body>
 

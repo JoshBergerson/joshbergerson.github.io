@@ -264,15 +264,7 @@
 
     /* Motorsport: diagonal teal stripe in top-right corner */
     #motorsport::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; bottom: 0; background: #0f6e56; opacity: 0.5; }
-
-    /* Gallery: alternating teal/concrete grid lines as subtle texture */
-    #gallery { background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 79px,
-        rgba(15,110,86,0.06) 79px,
-        rgba(15,110,86,0.06) 80px
-    ) !important; }
+    #gallery { background: var(--white) !important; }
 
     /* Skills: concrete with subtle teal gradient wash at top */
     #skills { background: linear-gradient(160deg, rgba(15,110,86,0.06) 0%, transparent 40%) !important; }
@@ -402,7 +394,7 @@
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('tonga')">
-        <div class="project-cover-wrap"><img src="tonga_new_cover.jpg" alt="Tonga Biomedical" class="project-cover" /></div>
+        <div class="project-cover-wrap"><img src="tonga_autoclave.jpg" alt="Troubleshooting autoclave" class="project-cover" /></div>
         <div class="project-body">
           <div class="project-num">// 02</div>
           <div class="project-title">Biomedical Engineering Solutions in Tonga</div>
@@ -441,25 +433,26 @@
   </section>
 
   <!-- LIGHTBOXES -->
-  <div class="lightbox" id="lb-accumulator">
+    <div class="lightbox" id="lb-accumulator">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('accumulator')">✕ Close</button>
-      <img src="ucm_4.jpg" class="lb-hero-img" alt="Accumulator CAD" />
+      <img src="ucm_4.jpg" class="lb-hero-img" alt="Accumulator CAD lid off" />
       <div class="lb-content">
-        <div class="lb-tag">// UCM / 2026 / In Progress</div>
-        <div class="lb-title">600V Pouch Cell<br>Accumulator</div>
+        <div class="lb-tag">// UCM Motorsport / 2026 / In Progress</div>
+        <div class="lb-title">600V Pouch Cell<br><span class="grey-word">Accumulator</span></div>
         <div class="lb-body">
-          <p>As Electrical Team Lead for UC Motorsport, I am pioneering the <strong>first pouch cell accumulator ever used in a UCM electric race car</strong>  a significant departure from the cylindrical cell format, representing a step-change in energy density and packaging flexibility.</p>
-          <h4>The Challenge</h4>
-          <p>Pouch cells offer superior energy density but require careful mechanical design  susceptible to swelling and needing robust clamping. Designing a pack that is structurally sound, thermally managed, and competition-legal at <strong>600V</strong> with no internal precedent made this a first-principles engineering challenge.</p>
-          <h4>My Role</h4>
-          <p>Cell selection, module layout, BMS integration, electrical isolation, and overall pack architecture. The vehicle will compete internationally in <strong>China and Australia</strong> in 2026.</p>
+          <p>As Electrical Lead for UC Motorsport, I am designing and building the tractive battery pack for the team's fully electric Formula Student race car. After a decade of cylindrical cell designs, I am pioneering UCM's first accumulator built around pouch cell technology. The shift offers significant performance gains but demands equally substantial engineering rigour, with every aspect designed from the ground up and no internal precedent to draw from.</p>
+          <h4>Key Engineering Decisions</h4>
+          <p><strong>Cell Tab Connections</strong>, Rather than welding, I designed a clamped tab connection system that creates a low-resistance electrical joint while keeping the pack fully serviceable in a racing environment.</p>
+          <p><strong>Module Housing</strong>, UL94-V0 rated insulating foam and 25% glass-filled nylon housing, with cells compressed to 20 psi for consistent electrochemical performance.</p>
+          <p><strong>Control Architecture</strong>, Relay and tractive fuse selection, precharge circuitry, voltage indication, and BMS integration, all governed by Formula Student safety regulations.</p>
+          <p>I also authored the <strong>Pouch Cell Handling Handbook</strong> for the University of Canterbury, establishing safe handling protocols that will remain with the team beyond this season.</p>
         </div>
         <div class="lb-specs">
-          <div class="lb-spec"><div class="lb-spec-label">Voltage</div><div class="lb-spec-val">600V nominal</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Cell Format</div><div class="lb-spec-val">Pouch cell (first at UCM)</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Status</div><div class="lb-spec-val">In development  2026</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Competition</div><div class="lb-spec-val">China &amp; Australia</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Nominal Voltage</div><div class="lb-spec-val">596V</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Peak Power</div><div class="lb-spec-val">105kW</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Capacity</div><div class="lb-spec-val">7.24kWh</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Cell Config</div><div class="lb-spec-val">132S / 6 modules</div></div>
         </div>
         <div class="lb-imgs">
           <figure><img src="ucm_module.jpg" alt="Module prototype" /><figcaption>Module prototype</figcaption></figure>
@@ -469,55 +462,55 @@
     </div>
   </div>
 
-  <div class="lightbox" id="lb-tonga">
+    <div class="lightbox" id="lb-tonga">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('tonga')">✕ Close</button>
-      <img src="tonga_new_cover.jpg" class="lb-hero-img" alt="Nurse training on autoclave" />
+      <img src="tonga_autoclave.jpg" class="lb-hero-img" alt="Troubleshooting autoclave" style="object-fit:cover;object-position:center;" />
       <div class="lb-content">
-        <div class="lb-tag">// Vaiola Hospital, Tonga / Nov 2025  Feb 2026</div>
-        <div class="lb-title">Biomedical Engineering<br>Solutions in Tonga</div>
+        <div class="lb-tag">// University of Canterbury / Tonga / Nov 2025, Feb 2026</div>
+        <div class="lb-title">Biomedical Engineering<br><span class="grey-word">Solutions in Tonga</span></div>
         <div class="lb-body">
-          <p>Deployed as part of an <strong>8-person UC biomedical engineering team</strong> to strengthen healthcare infrastructure in Tonga, working directly with staff at Vaiola Hospital and local clinics over a month-long placement.</p>
-          <h4>The Problem</h4>
-          <p>Vaiola Hospital had only <strong>one functioning autoclave</strong> on the main island  sterilisation equipment critical for surgical safety. Multiple units had failed with no spare parts available and limited technical support in-country.</p>
-          <h4>The Solution</h4>
-          <p>Through systematic fault diagnosis, creative improvisation, and close collaboration with Tongan technicians, we increased the number of operational autoclaves from <strong>one to six</strong>  all designed to be maintained by local staff long after we left.</p>
-          <h4>What It Taught Me</h4>
-          <p>Engineering in a zero-resource environment strips away every comfort. You can't order parts, you can't Google the fix, and the stakes are real.</p>
+          <p>Selected as part of a eight-strong UC engineering team deployed to Tonga for one month with a single goal: tangibly improve the healthcare system. My focus was sterilisation capability, working with one teammate, we increased the number of functional autoclaves across Tonga's health facilities from <strong>one to six</strong>.</p>
+          <h4>Resourceful Repair</h4>
+          <p>One early find was a TOMY SX-500 laboratory autoclave sitting unused in storage. With no fault history and no documentation, we diagnosed a seized door interlock actuator, freed it, and <strong>3D printed a replacement component</strong> using the printer we brought. It was returned to service the same day.</p>
+          <h4>Nurse Training</h4>
+          <p>Several donated autoclaves sat unused simply because no-one had been trained to use them. We developed a structured training programme and delivered it to <strong>approximately 30 nurses</strong> across multiple facilities, designing it to be passed on after we left.</p>
+          <h4>Beyond the Brief</h4>
+          <p>The team also completed a significant cleanup of the Vei-Tongo storage facility, which had accumulated a backlog of medical waste. Real impact required working beyond the traditional engineering brief.</p>
         </div>
         <div class="lb-specs">
-          <div class="lb-spec"><div class="lb-spec-label">Location</div><div class="lb-spec-val">Vaiola Hospital, Tonga</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Outcome</div><div class="lb-spec-val">1 → 6 functional autoclaves</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Nurses trained</div><div class="lb-spec-val">~30 across facilities</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Duration</div><div class="lb-spec-val">1 month placement</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Outcome</div><div class="lb-spec-val">1 → 6 operational autoclaves</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Team</div><div class="lb-spec-val">8-person UC engineering team</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Team</div><div class="lb-spec-val">8-person UC team</div></div>
         </div>
         <div class="lb-imgs">
-          <figure><img src="tonga_autoclave.jpg" alt="Troubleshooting autoclave" /><figcaption>Troubleshooting autoclave</figcaption></figure>
+          <figure><img src="tonga_new_cover.jpg" alt="Nurse training" /><figcaption>Nurse training</figcaption></figure>
           <figure><img src="tonga_nurses.jpg" alt="Nurse training in Mu'a Clinic" /><figcaption>Nurse training in Mu'a Clinic</figcaption></figure>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="lightbox" id="lb-robocup">
+    <div class="lightbox" id="lb-robocup">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('robocup')">✕ Close</button>
-      <img src="robocup_cover.jpg" class="lb-hero-img" alt="RoboCup robot" style="object-fit:contain;background:#f0f1f3;" />
+      <img src="robocup_cover.jpg" class="lb-hero-img" alt="RoboCup robot" style="object-fit:contain;background:#f0f0ed;" />
       <div class="lb-content">
-        <div class="lb-tag">// UC RoboCup  1st Place 2025</div>
-        <div class="lb-title">RoboCup<br>Winning Robot</div>
+        <div class="lb-tag">// University of Canterbury / RoboCup 2025 / 1st Place</div>
+        <div class="lb-title">RoboCup<br><span class="grey-word">Winning Robot</span></div>
         <div class="lb-body">
-          <p>Designed and programmed a fully <strong>autonomous robot in Python and C</strong> that navigated dynamic environments, avoided obstacles, and completed tasks without human input  taking 1st place in the 2025 UC RoboCup.</p>
-          <h4>Technical Approach</h4>
-          <p>Front-mounted proximity sensors for obstacle detection and real-time path replanning. In the final, a <strong>last-minute software modification</strong> to the navigation stack directly contributed to the winning run.</p>
-          <h4>Key Skills</h4>
-          <p>Embedded C programming, Python control logic, sensor integration, real-time decision making, and iteration under competition pressure.</p>
+          <p>A full-year project competed by all third-year Mechatronics students. Forty teams of three design and build a fully autonomous robot for a round-robin competition. My robot placed <strong>first in 2025</strong>, built around a crop harvester-inspired sorting mechanism and a software architecture designed for reliability over complexity.</p>
+          <h4>Unified Control Architecture</h4>
+          <p>Most teams wrote hard-coded logic for each scenario, an approach that breaks at edge cases. I designed a <strong>single state-machine controller</strong> fed with different error signals depending on the state: wall proximity in AvoidWall, distance-to-weight in Pickup, and IMU heading in ReturnHome. The same control logic handled every situation. The robot never got stuck and returned home reliably, sometimes multiple times per round.</p>
+          <h4>The Sorting Mechanism</h4>
+          <p>A custom kicker geometry, iterated specifically to redirect weights reliably regardless of approach angle, also proved capable of catching the Snitch, a small rolling robot notoriously difficult to intercept. The robot captured it <strong>3 out of 7 rounds</strong>, three times more than any other team.</p>
         </div>
         <div class="lb-specs">
           <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Languages</div><div class="lb-spec-val">Python, C</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Type</div><div class="lb-spec-val">Fully Autonomous</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Snitch captures</div><div class="lb-spec-val">3/7 rounds (3× best)</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Languages</div><div class="lb-spec-val">Python / C</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Team size</div><div class="lb-spec-val">3 students</div></div>
         </div>
         <div class="lb-imgs">
           <figure><img src="robocup_3.jpg" alt="Sorting mechanism" /><figcaption>Sorting mechanism</figcaption></figure>
@@ -527,24 +520,24 @@
     </div>
   </div>
 
-  <div class="lightbox" id="lb-formulastudent">
+    <div class="lightbox" id="lb-formulastudent">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('formulastudent')">✕ Close</button>
       <img src="fs_cover.jpg" class="lb-hero-img" alt="Formula Student E13 at scrutineering" style="object-position: center 60%;" />
       <div class="lb-content">
-        <div class="lb-tag">// Formula Student Australasia  1st Place 2025</div>
-        <div class="lb-title">Formula Student<br>Australasia Champions</div>
+        <div class="lb-tag">// Formula Student Australasia / 1st Place / 2025</div>
+        <div class="lb-title">Formula Student<br><span class="grey-word">Australasia Champions</span></div>
         <div class="lb-body">
-          <p>In 2025, UC Motorsport took <strong>1st Place at the Formula Student Australasia Competition</strong>  the result of a full year of design, build, late nights, and a team refusing to accept anything less than competition-ready.</p>
+          <p>As a junior electrical team member, I contributed to the UCM car that won <strong>Formula Student Australasia 2025</strong>, my first year with the team and the start of what became a full leadership role the following season.</p>
           <h4>Scrutineering</h4>
-          <p>Scrutineering is where Formula Student is won or lost before a wheel turns. Every electrical system must pass rigorous inspection. I led the electrical team through <strong>long nights in the workshop</strong> diagnosing issues, chasing faults, and getting every system to standard. We passed. The car ran. We won.</p>
-          <h4>Electrical Scope</h4>
-          <p>Full electrical architecture: high-voltage tractive system, harness layout and build, interlock circuits, BMS integration, and on-site fault diagnosis during competition.</p>
+          <p>Scrutineering is where Formula Student is won or lost before a wheel turns. Every electrical system must pass rigorous technical inspection. I spent <strong>long nights in the workshop</strong> alongside the electrical team, chasing faults, verifying circuits, and doing whatever it took to get the car to standard. We passed. The car ran. We won.</p>
+          <h4>What It Taught Me</h4>
+          <p>Working under that kind of deadline pressure, with real consequences for failure, taught me more about engineering in a team than any coursework had. It also convinced me to step up and lead the electrical team the following year.</p>
         </div>
         <div class="lb-specs">
           <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place Overall</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Competition</div><div class="lb-spec-val">Formula Student Australasia</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Role</div><div class="lb-spec-val">Electrical Team Lead</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Role</div><div class="lb-spec-val">Junior electrical member</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
         </div>
         <div class="lb-imgs">
@@ -555,26 +548,28 @@
     </div>
   </div>
 
-  <div class="lightbox" id="lb-solarcar">
+    <div class="lightbox" id="lb-solarcar">
     <div class="lb-inner">
       <button class="lb-close" onclick="closeLightbox('solarcar')">✕ Close</button>
       <img src="solar_winners.jpg" class="lb-hero-img" alt="Solar Car winners" style="object-position: center 30%;" />
       <div class="lb-content">
-        <div class="lb-tag">// UC Solar Car Challenge  1st Place 2025</div>
-        <div class="lb-title">Solar Car<br>Race Winner</div>
+        <div class="lb-tag">// University of Canterbury / Solar Car Challenge / 1st Place 2025</div>
+        <div class="lb-title">Solar Car<br><span class="grey-word">Race Winner</span></div>
         <div class="lb-body">
-          <p>Designed a custom PCB for the power management system of UC's solar car entry. Our key innovation was using <strong>MOSFET switching to improve efficiency in the buck converter</strong>  outperforming other teams and contributing directly to the 1st place result.</p>
-          <h4>PCB Design</h4>
-          <p>MOSFET selection for the switching topology, PCB layout to minimise parasitic inductance, and validation through simulation and physical testing.</p>
+          <p>A half-year project for Electrical and Mechatronics students at UC. Teams design and build a buck converter to drive a solar-powered race car, with efficiency as the primary metric. Working in a team of three, <strong>we placed first in 2025</strong>.</p>
+          <h4>The Key Decision: MOSFET Gate Drive</h4>
+          <p>Every competing team used a BJT-based switching design, straightforward to implement but carrying higher switching losses at the required frequencies. We chose a <strong>MOSFET gate drive configuration</strong>, which offered significantly lower on-resistance and faster switching characteristics. This single decision was the primary differentiator between our design and the field, and the efficiency gains it delivered were reflected in the final result.</p>
+          <h4>Skills</h4>
+          <p>Designed and iterated the buck converter from schematic through to physical PCB in <strong>KiCad</strong>, developing practical skills in component selection, trace routing, and board-level optimisation for a switching power application.</p>
         </div>
         <div class="lb-specs">
           <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Focus</div><div class="lb-spec-val">Buck Converter PCB</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Innovation</div><div class="lb-spec-val">MOSFET switching topology</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Differentiator</div><div class="lb-spec-val">MOSFET vs BJT switching</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">PCB Tool</div><div class="lb-spec-val">KiCad</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Team size</div><div class="lb-spec-val">3 students</div></div>
         </div>
         <div class="lb-imgs">
-          <figure><img src="solar_2.jpg" alt="Winning solar car" /><figcaption>Winning solar car</figcaption></figure>
+          <figure><img src="solar_2.jpg" alt="Buck converter PCB" /><figcaption>Buck converter PCB</figcaption></figure>
           <figure><img src="solar_cover.jpg" alt="Buck converter schematic" /><figcaption>Buck converter schematic</figcaption></figure>
         </div>
       </div>
@@ -661,7 +656,7 @@
         <div class="gallery-thumb" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Running the Christchurch Marathon" /><div class="gallery-thumb-cap">Running the Christchurch Marathon</div></div>
         <div class="gallery-thumb" onclick="openGalleryLb('gal_tonga_night.jpg','Night out with the Tonga team')"><img src="gal_tonga_night.jpg" alt="Night out with the Tonga team" /><div class="gallery-thumb-cap">Night out with the Tonga team</div></div>
         <div class="gallery-thumb" onclick="openGalleryLb('gal_football.jpg','Mechatronics vs Mechanical football')"><img src="gal_football.jpg" alt="Mechatronics vs Mechanical football" /><div class="gallery-thumb-cap">Mechatronics vs Mechanical football</div></div>
-        <div class="gallery-thumb" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team — 5-day endurance ra..." /><div class="gallery-thumb-cap">Crest to Crest team — 5-day endurance race</div></div>
+        <div class="gallery-thumb" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team, 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team, 5-day endurance ra..." /><div class="gallery-thumb-cap">Crest to Crest team, 5-day endurance race</div></div>
         <div class="gallery-thumb" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping with friends" /><div class="gallery-thumb-cap">Camping with friends</div></div>
         <div class="gallery-thumb" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Tramping to an alpine lake" /><div class="gallery-thumb-cap">Tramping to an alpine lake</div></div>
         <div class="gallery-thumb" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student competition in Melbourne" /><div class="gallery-thumb-cap">Formula Student competition in Melbourne</div></div>
@@ -678,7 +673,7 @@
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_marathon.jpg','Running the Christchurch Marathon')"><img src="gal_marathon.jpg" alt="Running the Christchurch Marathon" /><div class="gallery-grid-cap">Running the Christchurch Marathon</div></div>
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_night.jpg','Night out with the Tonga team')"><img src="gal_tonga_night.jpg" alt="Night out with the Tonga team" /><div class="gallery-grid-cap">Night out with the Tonga team</div></div>
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_tonga_dance.jpg','Performing the Maka at a resort in Tonga')"><img src="gal_tonga_dance.jpg" alt="Performing the Maka at a resort in Tonga" /><div class="gallery-grid-cap">Performing the Maka at a resort in Tonga</div></div>
-      <div class="gallery-grid-item" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team — 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team — 5-day endurance ra..." /><div class="gallery-grid-cap">Crest to Crest team — 5-day endurance race</div></div>
+      <div class="gallery-grid-item" onclick="openGalleryLb('gal_pnbhs.jpg','Crest to Crest team, 5-day endurance race')"><img src="gal_pnbhs.jpg" alt="Crest to Crest team, 5-day endurance ra..." /><div class="gallery-grid-cap">Crest to Crest team, 5-day endurance race</div></div>
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_bush.jpg','Camping with friends')"><img src="gal_bush.jpg" alt="Camping with friends" /><div class="gallery-grid-cap">Camping with friends</div></div>
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_tramping.jpg','Tramping to an alpine lake')"><img src="gal_tramping.jpg" alt="Tramping to an alpine lake" /><div class="gallery-grid-cap">Tramping to an alpine lake</div></div>
       <div class="gallery-grid-item" onclick="openGalleryLb('gal_fspit.jpg','Formula Student competition in Melbourne')"><img src="gal_fspit.jpg" alt="Formula Student competition in Melbourne" /><div class="gallery-grid-cap">Formula Student competition in Melbourne</div></div>

@@ -78,8 +78,9 @@
     .moto-main p strong { color: var(--navy); font-weight: 600; }
     .moto-skills { margin-top: 1.75rem; }
     .moto-skills-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-    .moto-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .pill { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.9rem; background: var(--bg2); color: var(--navy); }
+    .moto-pills { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
+    .pill { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.02em; text-transform: none; color: var(--grey); padding: 0.15rem 0.8rem 0.15rem 0; background: none; }
+    .pill + .pill { padding-left: 0.8rem; border-left: 1.5px solid var(--border); }
     .moto-side { padding-left: 4rem; display: flex; flex-direction: column; gap: 1.25rem; }
     .moto-badge { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--navy-mid); padding: 1.2rem 1.4rem; }
     .moto-badge-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; }
@@ -99,8 +100,10 @@
     .project-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 0.35rem; }
     .project-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--navy); }
     .project-desc { font-size: 1em; color: var(--grey); line-height: 1.7; flex: 1; }
-    .project-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .tag { font-family: 'JetBrains Mono', monospace; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--black); padding: 0.2rem 0; }
+    .project-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
+    .tag { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.02em; text-transform: none; color: var(--grey); padding: 0.15rem 0.8rem 0.15rem 0; }
+    .tag + .tag { padding-left: 0.8rem; border-left: 1.5px solid var(--border); }
+    .tag.hot { color: var(--navy); font-weight: 600; }
     .tag.hot { color: var(--navy); background: none; font-weight: 600; }
 
     /* LIGHTBOX */
@@ -300,18 +303,17 @@
         <p>In 2026 I am leading development of the <strong>first pouch cell accumulator</strong> ever used in a UCM electric vehicle  a 600V system replacing the traditional cylindrical cell format. The car will compete in <strong>China and Australia</strong>.</p>
         <div class="moto-skills">
           <div class="moto-skills-title">Technical Skills Developed</div>
-          <div class="moto-pills">
-            <span class="pill">High-Voltage Systems
-            <span class="pill">Composites
-            <span class="pill">Systems Engineering
-            <span class="pill">Rapid Prototyping
-            <span class="pill">CAD
-            <span class="pill">PCB Design
-            <span class="pill">Electrical Harness
-            <span class="pill">BMS Integration
-            <span class="pill">Scrutineering
-            <span class="pill">Project Management
-          </div>
+          <div class="moto-pills"><span class="pill">High-Voltage Systems
+            </span><span class="pill">Composites
+            </span><span class="pill">Systems Engineering
+            </span><span class="pill">Rapid Prototyping
+            </span><span class="pill">CAD
+            </span><span class="pill">PCB Design
+            </span><span class="pill">Electrical Harness
+            </span><span class="pill">BMS Integration
+            </span><span class="pill">Scrutineering
+            </span><span class="pill">Project Management
+          </span></div>
         </div>
       </div>
       <div class="moto-side">
@@ -334,7 +336,7 @@
           <div class="project-num">// 01</div>
           <div class="project-title">600V Pouch Cell Accumulator</div>
           <div class="project-desc">Pioneering UCM's first pouch cell high-voltage battery pack for the 2026 electric race car.</div>
-          <div class="project-tags"><span class="tag hot">In Progress<span class="tag">High Voltage<span class="tag">EV Systems</div>
+          <div class="project-tags"><span class="tag hot">In Progress</span><span class="tag">High Voltage</span><span class="tag">EV Systems</span></div>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('tonga')">
@@ -343,7 +345,7 @@
           <div class="project-num">// 02</div>
           <div class="project-title">Biomedical Engineering Solutions in Tonga</div>
           <div class="project-desc">Deployed to Vaiola Hospital. Increased operational autoclaves from one to six with zero spare parts.</div>
-          <div class="project-tags"><span class="tag">Field Engineering<span class="tag">Problem Solving<span class="tag">Low-Resource</div>
+          <div class="project-tags"><span class="tag">Field Engineering</span><span class="tag">Problem Solving</span><span class="tag">Low-Resource</span></div>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('robocup')">
@@ -352,7 +354,7 @@
           <div class="project-num">// 03</div>
           <div class="project-title">RoboCup Winning Robot</div>
           <div class="project-desc">Programmed a fully autonomous robot that took 1st place in the 2025 UC RoboCup Competition.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025<span class="tag">Python<span class="tag">C<span class="tag">Robotics</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Robotics</span></div>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('formulastudent')">
@@ -361,7 +363,7 @@
           <div class="project-num">// 04</div>
           <div class="project-title">Formula Student Australasia Champions</div>
           <div class="project-desc">Electrical Team Lead on the UCM car that won Formula Student Australasia 2025.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025<span class="tag">Electrical Systems<span class="tag">Formula Student</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Electrical Systems</span><span class="tag">Formula Student</span></div>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('solarcar')">
@@ -370,7 +372,7 @@
           <div class="project-num">// 05</div>
           <div class="project-title">Solar Car Race Winner</div>
           <div class="project-desc">Designed a PCB with MOSFET switching to improve buck converter efficiency. 1st place result.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025<span class="tag">PCB Design<span class="tag">Power Electronics</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">PCB Design</span><span class="tag">Power Electronics</span></div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
   <title>Josh Bergerson — Mechatronics Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0a0a0a;
@@ -15,646 +15,203 @@
       --red: #e8001d;
       --red-dim: #9b0015;
       --white: #f0f0f0;
-      --grey: #888;
+      --grey: #999;
       --grey-light: #555;
-      --border: #222;
+      --border: #242424;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 18px; overflow-x: hidden; line-height: 1.6; }
 
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.35;
+      pointer-events: none; z-index: 1000; opacity: 0.35;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 1.2rem 3rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(14px);
     }
-
-    .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.2rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-    }
-
+    .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
     .nav-logo span { color: var(--red); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--grey);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 3rem 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; position: relative; overflow: hidden; }
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,0,29,0.08) 0%, transparent 70%),
-        linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);
+        linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.65) 55%, rgba(10,10,10,1) 100%),
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,0,29,0.1) 0%, transparent 70%),
+        url('hero.jpg') center 40% / cover no-repeat;
     }
-
-    /* Racing stripe */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      right: 18%;
-      width: 3px;
-      background: linear-gradient(180deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
-      opacity: 0.4;
-    }
-
-    .hero-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--red);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.2s forwards;
-    }
-
-    .hero-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(4rem, 10vw, 9rem);
-      line-height: 0.92;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.35s forwards;
-    }
-
-    .hero-name .outline {
-      -webkit-text-stroke: 1px rgba(240,240,240,0.3);
-      color: transparent;
-    }
-
-    .hero-sub {
-      margin-top: 2rem;
-      font-size: 1rem;
-      color: var(--grey);
-      max-width: 480px;
-      line-height: 1.7;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.5s forwards;
-    }
-
-    .hero-cta {
-      margin-top: 2.5rem;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.65s forwards;
-    }
-
-    .btn-primary {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: var(--red);
-      color: #fff;
-      border: none;
-      padding: 0.9rem 2rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      display: inline-block;
-    }
-
+    .hero::after { content: ''; position: absolute; top: 0; bottom: 0; right: 18%; width: 3px; background: linear-gradient(180deg, transparent, var(--red) 30%, var(--red) 70%, transparent); opacity: 0.35; }
+    .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s 0.2s forwards; }
+    .hero-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4.5rem, 11vw, 10rem); line-height: 0.92; letter-spacing: -0.01em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.7s 0.35s forwards; }
+    .hero-name .outline { -webkit-text-stroke: 1px rgba(240,240,240,0.3); color: transparent; }
+    .hero-sub { margin-top: 2rem; font-size: 1.15rem; color: var(--grey); max-width: 500px; line-height: 1.75; opacity: 0; animation: fadeUp 0.7s 0.5s forwards; }
+    .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.7s 0.65s forwards; }
+    .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--red); color: #fff; border: none; padding: 1rem 2.2rem; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.1s; display: inline-block; }
     .btn-primary:hover { background: #ff0022; transform: translateY(-1px); }
-
-    .btn-ghost {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--grey);
-      border: 1px solid var(--border);
-      padding: 0.9rem 2rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover { color: var(--white); border-color: #444; }
-
-    .hero-stats {
-      position: absolute;
-      right: 3rem;
-      bottom: 5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      opacity: 0;
-      animation: fadeIn 0.8s 0.9s forwards;
-    }
-
-    .stat {
-      text-align: right;
-    }
-
-    .stat-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
+    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; background: transparent; color: var(--grey); border: 1px solid var(--border); padding: 1rem 2.2rem; text-decoration: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; display: inline-block; }
+    .btn-ghost:hover { color: var(--white); border-color: #555; }
+    .hero-stats { position: absolute; right: 3rem; bottom: 5rem; display: flex; flex-direction: column; gap: 2rem; opacity: 0; animation: fadeIn 0.8s 0.9s forwards; }
+    .stat { text-align: right; }
+    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2.6rem; color: var(--white); line-height: 1; }
     .stat-num span { color: var(--red); }
+    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--grey); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
 
-    .stat-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--grey);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 0.2rem;
-    }
+    /* SECTION BASE */
+    section { padding: 6rem 3rem; border-top: 1px solid var(--border); position: relative; }
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--red); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(3rem, 6vw, 5rem); text-transform: uppercase; line-height: 1; margin-bottom: 3rem; }
 
-    /* ── SECTION BASE ── */
-    section {
-      padding: 6rem 3rem;
-      border-top: 1px solid var(--border);
-      position: relative;
-    }
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 360px 1fr; gap: 5rem; align-items: start; }
+    .about-photo-wrap { position: relative; }
+    .about-photo { width: 100%; display: block; filter: grayscale(15%) contrast(1.05); }
+    .about-photo-border { position: absolute; top: 14px; left: 14px; right: -14px; bottom: -14px; border: 1px solid var(--red); z-index: -1; pointer-events: none; }
+    .about-text p { color: var(--grey); line-height: 1.85; margin-bottom: 1.3rem; font-size: 1.05rem; }
+    .about-text p strong { color: var(--white); font-weight: 500; }
+    .about-details { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
+    .about-detail { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+    .detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
+    .detail-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); }
 
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--red);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: 3rem;
-    }
-
-    /* ── MOTORSPORT FEATURE ── */
-    .motorsport {
-      background: var(--bg2);
-    }
-
-    .moto-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .moto-main {
-      border-right: 1px solid var(--border);
-      padding-right: 3rem;
-    }
-
-    .moto-main p {
-      color: var(--grey);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .moto-main p strong {
-      color: var(--white);
-      font-weight: 500;
-    }
-
-    .moto-side {
-      padding-left: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .moto-badge {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
-      padding: 1.25rem 1.5rem;
-    }
-
-    .moto-badge-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 0.4rem;
-    }
-
-    .moto-badge-text {
-      font-size: 0.9rem;
-      color: var(--grey);
-      line-height: 1.5;
-    }
-
-    .moto-badge-text strong { color: var(--white); font-weight: 500; }
-
-    /* ── PROJECTS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .project-card {
-      background: var(--bg);
-      padding: 2rem;
-      position: relative;
-      transition: background 0.25s;
-      overflow: hidden;
-    }
-
-    .project-card:hover { background: var(--bg3); }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--red);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-
-    .project-card:hover::before { transform: scaleX(1); }
-
-    .project-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 3rem;
-      color: var(--border);
-      line-height: 1;
-      margin-bottom: 1rem;
-      transition: color 0.25s;
-    }
-
-    .project-card:hover .project-num { color: rgba(232,0,29,0.15); }
-
-    .project-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      color: var(--white);
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--grey);
-      line-height: 1.6;
-    }
-
-    .project-tags {
-      margin-top: 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--grey);
-      border: 1px solid var(--grey-light);
-      padding: 0.2rem 0.5rem;
-    }
-
-    .tag.hot {
-      color: var(--red);
-      border-color: var(--red-dim);
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem;
-    }
-
-    .skill-group-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .skill-name {
-      font-size: 0.9rem;
-      color: var(--white);
-    }
-
-    .skill-bar-track {
-      width: 140px;
-      height: 2px;
-      background: var(--border);
-      position: relative;
-    }
-
-    .skill-bar-fill {
-      position: absolute;
-      top: 0; left: 0;
-      height: 100%;
-      background: var(--red);
-    }
-
-    /* ── EXPERIENCE ── */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 0;
-    }
-
-    .exp-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--grey);
-      padding-top: 0.25rem;
-      letter-spacing: 0.05em;
-    }
-
-    .exp-content {}
-
-    .exp-role {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.25rem;
-    }
-
-    .exp-company {
-      font-size: 0.85rem;
-      color: var(--red);
-      margin-bottom: 0.8rem;
-      font-weight: 400;
-    }
-
-    .exp-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .exp-bullets li {
-      font-size: 0.88rem;
-      color: var(--grey);
-      line-height: 1.6;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .exp-bullets li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--red-dim);
-    }
-
-    /* ── ACHIEVEMENTS TICKER ── */
-    .ticker-wrap {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-      background: var(--bg2);
-    }
-
-    .ticker {
-      display: flex;
-      gap: 0;
-      animation: ticker 28s linear infinite;
-      width: max-content;
-    }
-
-    .ticker-item {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding: 0 2.5rem;
-      color: var(--grey);
-    }
-
+    /* TICKER */
+    .ticker-wrap { overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.1rem 0; background: var(--bg2); }
+    .ticker { display: flex; gap: 0; animation: ticker 30s linear infinite; width: max-content; }
+    .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; white-space: nowrap; padding: 0 2.5rem; color: var(--grey); }
     .ticker-item .dot { color: var(--red); margin-right: 2.5rem; }
 
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
+    /* MOTORSPORT */
+    .motorsport { background: var(--bg2); }
+    .moto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .moto-main { border-right: 1px solid var(--border); padding-right: 3rem; }
+    .moto-main p { color: var(--grey); line-height: 1.85; margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .moto-main p strong { color: var(--white); font-weight: 500; }
+    .moto-side { padding-left: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .moto-badge { background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 1.35rem 1.5rem; }
+    .moto-badge-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; }
+    .moto-badge-text { font-size: 1rem; color: var(--grey); line-height: 1.55; }
+    .moto-badge-text strong { color: var(--white); font-weight: 500; }
 
-    .contact-intro {
-      font-size: 1.1rem;
-      color: var(--grey);
-      line-height: 1.8;
-      max-width: 420px;
-    }
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+      display: flex; flex-direction: column;
     }
+    .project-card:hover { border-color: var(--red); transform: translateY(-3px); }
 
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--white);
-      transition: color 0.2s;
-      group: true;
+    .project-cover {
+      width: 100%; aspect-ratio: 16/10; object-fit: cover;
+      display: block;
+      filter: grayscale(30%) brightness(0.85);
+      transition: filter 0.35s, transform 0.35s;
     }
+    .project-card:hover .project-cover { filter: grayscale(0%) brightness(1); transform: scale(1.03); }
 
+    .project-cover-wrap { overflow: hidden; position: relative; }
+    .project-cover-wrap::after { content: 'VIEW PROJECT →'; position: absolute; inset: 0; background: rgba(232,0,29,0.75); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.2em; color: #fff; opacity: 0; transition: opacity 0.25s; }
+    .project-card:hover .project-cover-wrap::after { opacity: 1; }
+
+    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .project-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.4rem; }
+    .project-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.6rem; color: var(--white); }
+    .project-desc { font-size: 0.92rem; color: var(--grey); line-height: 1.65; flex: 1; }
+    .project-tags { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); border: 1px solid var(--grey-light); padding: 0.22rem 0.55rem; }
+    .tag.hot { color: var(--red); border-color: var(--red-dim); }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.92); overflow-y: auto; padding: 2rem; }
+    .lightbox.open { display: flex; align-items: flex-start; justify-content: center; }
+    .lb-inner { background: var(--bg2); border: 1px solid var(--border); max-width: 900px; width: 100%; margin: auto; position: relative; }
+    .lb-close { position: absolute; top: 1.2rem; right: 1.5rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.15em; color: var(--grey); cursor: pointer; background: none; border: none; text-transform: uppercase; transition: color 0.2s; z-index: 10; }
+    .lb-close:hover { color: var(--red); }
+    .lb-hero-img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
+    .lb-content { padding: 2.5rem; }
+    .lb-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .lb-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 1.5rem; }
+    .lb-body { font-size: 1.05rem; color: var(--grey); line-height: 1.85; }
+    .lb-body p { margin-bottom: 1.1rem; }
+    .lb-body strong { color: var(--white); font-weight: 500; }
+    .lb-body h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin: 1.5rem 0 0.6rem; }
+    .lb-imgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .lb-imgs img { width: 100%; object-fit: cover; border: 1px solid var(--border); display: block; }
+    .lb-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 2rem; border: 1px solid var(--border); }
+    .lb-spec { padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); }
+    .lb-spec:nth-child(odd) { border-right: 1px solid var(--border); }
+    .lb-spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.3rem; }
+    .lb-spec-val { font-size: 1rem; color: var(--white); font-weight: 400; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem; }
+    .skill-group-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1.4rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .skill-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.15rem; }
+    .skill-name { font-size: 1rem; color: var(--white); }
+    .skill-bar-track { width: 150px; height: 2px; background: var(--border); position: relative; }
+    .skill-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--red); }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 0; border-bottom: 1px solid var(--border); padding: 2.75rem 0; }
+    .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--grey); padding-top: 0.25rem; letter-spacing: 0.05em; }
+    .exp-role { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .exp-company { font-size: 0.95rem; color: var(--red); margin-bottom: 0.9rem; font-weight: 400; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .exp-bullets li { font-size: 1rem; color: var(--grey); line-height: 1.7; padding-left: 1.1rem; position: relative; }
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--red-dim); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-intro { font-size: 1.1rem; color: var(--grey); line-height: 1.85; max-width: 440px; }
+    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-link { display: flex; align-items: center; justify-content: space-between; padding: 1.35rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--white); transition: color 0.2s; }
     .contact-link:hover { color: var(--red); }
-
-    .contact-link-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .contact-link-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--grey);
-    }
-
+    .contact-link-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .contact-link-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--grey); }
     .contact-link:hover .contact-link-val { color: var(--red); }
-
-    .arrow {
-      font-size: 1.2rem;
-      transition: transform 0.2s;
-    }
-
+    .arrow { font-size: 1.3rem; transition: transform 0.2s; }
     .contact-link:hover .arrow { transform: translateX(4px); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 2rem 3rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    footer .left { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--grey-light); letter-spacing: 0.1em; }
+    footer .right { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey-light); }
 
-    footer .left {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--grey-light);
-      letter-spacing: 0.1em;
-    }
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    footer .right {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--grey-light);
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
+      body { font-size: 16px; }
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .hero { padding: 0 1.5rem 4rem; }
       .hero-stats { display: none; }
       section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-wrap { max-width: 260px; }
       .moto-grid { grid-template-columns: 1fr; }
       .moto-main { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2.5rem; margin-bottom: 2.5rem; }
       .moto-side { padding-left: 0; }
@@ -663,6 +220,8 @@
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .lb-specs { grid-template-columns: 1fr; }
+      .lb-spec:nth-child(odd) { border-right: none; }
     }
   </style>
 </head>
@@ -672,6 +231,7 @@
   <nav>
     <a href="#" class="nav-logo">JB<span>.</span></a>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#motorsport">Motorsport</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -684,32 +244,16 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-tag">// Mechatronics Engineer — Christchurch, NZ</div>
-    <h1 class="hero-name">
-      Josh<br>
-      <span class="outline">Berger</span>son
-    </h1>
-    <p class="hero-sub">
-      Fourth-year Mechatronics Engineering student at the University of Canterbury.
-      Electrical Team Lead, UC Motorsport — <strong style="color:var(--white)">1st Place, Formula Student Australasia 2025.</strong>
-    </p>
+    <h1 class="hero-name">Josh<br><span class="outline">Berger</span>son</h1>
+    <p class="hero-sub">Fourth-year Mechatronics Engineering student at the University of Canterbury. Electrical Team Lead, UC Motorsport — <strong style="color:var(--white)">1st Place, Formula Student Australasia 2025.</strong></p>
     <div class="hero-cta">
-      <a href="#motorsport" class="btn-primary">View Work</a>
+      <a href="#projects" class="btn-primary">View Work</a>
       <a href="mailto:joshkbergerson@gmail.com" class="btn-ghost">Get in Touch</a>
     </div>
-
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">1<span>st</span></div>
-        <div class="stat-label">Formula Student Aus. 2025</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">7.72<span>/9</span></div>
-        <div class="stat-label">Current GPA</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">600<span>V</span></div>
-        <div class="stat-label">Accumulator Under Dev.</div>
-      </div>
+      <div class="stat"><div class="stat-num">1<span>st</span></div><div class="stat-label">Formula Student Aus. 2025</div></div>
+      <div class="stat"><div class="stat-num">7.72<span>/9</span></div><div class="stat-label">Current GPA</div></div>
+      <div class="stat"><div class="stat-num">600<span>V</span></div><div class="stat-label">Accumulator Under Dev.</div></div>
     </div>
   </section>
 
@@ -721,16 +265,36 @@
       <span class="ticker-item"><span class="dot">●</span>UC Solar Car Challenge — 1st Place 2025</span>
       <span class="ticker-item"><span class="dot">●</span>Qi Chen Prize in Engineering &amp; Design 2026</span>
       <span class="ticker-item"><span class="dot">●</span>National Under 21 Clay Target Shooting Champion 2022</span>
-      <span class="ticker-item"><span class="dot">●</span>Christchurch Marathon Finisher 2025</span>
-      <!-- Duplicate for seamless loop -->
       <span class="ticker-item"><span class="dot">●</span>Formula Student Australasia — 1st Place 2025</span>
       <span class="ticker-item"><span class="dot">●</span>UC RoboCup — 1st Place 2025</span>
       <span class="ticker-item"><span class="dot">●</span>UC Solar Car Challenge — 1st Place 2025</span>
       <span class="ticker-item"><span class="dot">●</span>Qi Chen Prize in Engineering &amp; Design 2026</span>
       <span class="ticker-item"><span class="dot">●</span>National Under 21 Clay Target Shooting Champion 2022</span>
-      <span class="ticker-item"><span class="dot">●</span>Christchurch Marathon Finisher 2025</span>
     </div>
   </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">// 00 — About</div>
+    <div class="about-grid reveal">
+      <div class="about-photo-wrap">
+        <img src="profile.jpg" alt="Josh Bergerson" class="about-photo" />
+        <div class="about-photo-border"></div>
+      </div>
+      <div class="about-text">
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Mechatronics<br>Engineer</h2>
+        <p>I'm a fourth-year Mechatronics Engineering student at the University of Canterbury, Christchurch — targeting graduate roles in mechanical and automotive engineering.</p>
+        <p>I lead the electrical team at UC Motorsport, where we took <strong>1st place at Formula Student Australasia 2025</strong> and are now building a 600V pouch cell accumulator for international competition. Outside of motorsport, I've worked in industrial fabrication, built autonomous robots, and spent a month engineering in Tonga with zero spare parts.</p>
+        <p>I thrive in hands-on, high-ownership environments where the work actually matters.</p>
+        <div class="about-details">
+          <div class="about-detail"><span class="detail-label">Degree</span><span class="detail-val">BE (Hons) Mechatronics — UC</span></div>
+          <div class="about-detail"><span class="detail-label">GPA</span><span class="detail-val">7.72 / 9.0</span></div>
+          <div class="about-detail"><span class="detail-label">Based</span><span class="detail-val">Christchurch, New Zealand</span></div>
+          <div class="about-detail"><span class="detail-label">Available</span><span class="detail-val">Graduate roles, 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- MOTORSPORT FEATURE -->
   <section class="motorsport" id="motorsport">
@@ -738,36 +302,16 @@
     <h2 class="section-title reveal">UC Motorsport<br>Formula Student</h2>
     <div class="moto-grid reveal">
       <div class="moto-main">
-        <p>
-          As <strong>Electrical Team Lead</strong> for the University of Canterbury Motorsport Club, I oversee the full electrical architecture of a Formula Student race car — from harness design through to high-voltage systems integration.
-        </p>
-        <p>
-          In 2025, our team took <strong>1st Place at the Formula Student Australasia Competition</strong>, competing against university teams across the region. The result was the product of months of iterative design, late-night testing sessions, and a team that refused to settle.
-        </p>
-        <p>
-          In 2026, I am leading development of the <strong>first pouch cell accumulator</strong> ever used in a UCM electric vehicle — a 600V system replacing the traditional cylindrical cell format. The car will compete in <strong>China and Australia</strong> later this year.
-        </p>
-        <p>
-          Formula Student demands you to be an engineer and a manager simultaneously — you're responsible for technical delivery, team coordination, supplier relationships, and competing under pressure on race day. It's the closest thing to working in the automotive industry before you graduate.
-        </p>
+        <p>As <strong>Electrical Team Lead</strong> for the University of Canterbury Motorsport Club, I oversee the full electrical architecture of a Formula Student race car — from harness design through to high-voltage systems integration.</p>
+        <p>In 2025, our team took <strong>1st Place at the Formula Student Australasia Competition</strong>, competing against university teams across the region. The result was the product of months of iterative design, late-night testing sessions, and a team that refused to settle.</p>
+        <p>In 2026, I am leading development of the <strong>first pouch cell accumulator</strong> ever used in a UCM electric vehicle — a 600V system replacing the traditional cylindrical cell format. The car will compete in <strong>China and Australia</strong> later this year.</p>
+        <p>Formula Student demands you to be an engineer and a manager simultaneously — responsible for technical delivery, team coordination, supplier relationships, and competing under pressure on race day.</p>
       </div>
       <div class="moto-side">
-        <div class="moto-badge">
-          <div class="moto-badge-title">Role</div>
-          <div class="moto-badge-text"><strong>Electrical Team Lead</strong> — UC Motorsport Club</div>
-        </div>
-        <div class="moto-badge">
-          <div class="moto-badge-title">2025 Result</div>
-          <div class="moto-badge-text"><strong>1st Place</strong> — Formula Student Australasia Competition</div>
-        </div>
-        <div class="moto-badge">
-          <div class="moto-badge-title">2026 Development</div>
-          <div class="moto-badge-text">Pioneering a <strong>600V pouch cell accumulator</strong> — first of its kind at UCM. Racing in China &amp; Australia.</div>
-        </div>
-        <div class="moto-badge">
-          <div class="moto-badge-title">Technical Focus</div>
-          <div class="moto-badge-text">High-voltage battery systems, electrical harness design, MOSFET switching, embedded control systems</div>
-        </div>
+        <div class="moto-badge"><div class="moto-badge-title">Role</div><div class="moto-badge-text"><strong>Electrical Team Lead</strong> — UC Motorsport Club</div></div>
+        <div class="moto-badge"><div class="moto-badge-title">2025 Result</div><div class="moto-badge-text"><strong>1st Place</strong> — Formula Student Australasia Competition</div></div>
+        <div class="moto-badge"><div class="moto-badge-title">2026 Development</div><div class="moto-badge-text">Pioneering a <strong>600V pouch cell accumulator</strong> — first of its kind at UCM. Racing in China &amp; Australia.</div></div>
+        <div class="moto-badge"><div class="moto-badge-title">Technical Focus</div><div class="moto-badge-text">High-voltage battery systems, electrical harness design, MOSFET switching, embedded control systems</div></div>
       </div>
     </div>
   </section>
@@ -778,84 +322,217 @@
     <h2 class="section-title reveal">Engineering<br>Work</h2>
     <div class="projects-grid reveal">
 
-      <div class="project-card">
-        <div class="project-num">01</div>
-        <div class="project-title">600V Pouch Cell Accumulator</div>
-        <div class="project-desc">Designing and building UCM's first pouch cell high-voltage battery pack for the 2026 electric race car. Includes cell selection, BMS integration, and thermal management for international competition in China and Australia.</div>
-        <div class="project-tags">
-          <span class="tag hot">In Progress</span>
-          <span class="tag">High Voltage</span>
-          <span class="tag">BMS</span>
-          <span class="tag">EV Systems</span>
+      <div class="project-card" onclick="openLightbox('accumulator')">
+        <div class="project-cover-wrap">
+          <img src="ucm_cover.jpg" alt="600V Pouch Cell Accumulator" class="project-cover" />
+        </div>
+        <div class="project-body">
+          <div class="project-num">// 01</div>
+          <div class="project-title">600V Pouch Cell Accumulator</div>
+          <div class="project-desc">Pioneering UCM's first pouch cell high-voltage battery pack for the 2026 electric race car.</div>
+          <div class="project-tags"><span class="tag hot">In Progress</span><span class="tag">High Voltage</span><span class="tag">EV Systems</span></div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">02</div>
-        <div class="project-title">Formula Student — 1st Place</div>
-        <div class="project-desc">Electrical Team Lead on the UCM car that won Formula Student Australasia 2025. Responsible for electrical architecture, harness design, and systems integration across the full vehicle.</div>
-        <div class="project-tags">
-          <span class="tag hot">Winner</span>
-          <span class="tag">Electrical Systems</span>
-          <span class="tag">Formula Student</span>
+      <div class="project-card" onclick="openLightbox('formulastudent')">
+        <div class="project-cover-wrap">
+          <img src="fs_cover.jpg" alt="Formula Student E13 at scrutineering" class="project-cover" style="object-position: center 60%;" />
+        </div>
+        <div class="project-body">
+          <div class="project-num">// 02</div>
+          <div class="project-title">Formula Student — 1st Place</div>
+          <div class="project-desc">Electrical Team Lead on the UCM car that won Formula Student Australasia 2025.</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Electrical Systems</span><span class="tag">Formula Student</span></div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">03</div>
-        <div class="project-title">Autonomous Robot — RoboCup 1st Place</div>
-        <div class="project-desc">Programmed a fully autonomous robot in Python and C that navigated dynamic environments and took 1st place in the 2025 UC RoboCup. A last-minute software fix in the final contributed to the win.</div>
-        <div class="project-tags">
-          <span class="tag hot">Winner</span>
-          <span class="tag">Python</span>
-          <span class="tag">C</span>
-          <span class="tag">Robotics</span>
+      <div class="project-card" onclick="openLightbox('robocup')">
+        <div class="project-cover-wrap">
+          <img src="robocup_cover.jpg" alt="RoboCup" class="project-cover" />
+        </div>
+        <div class="project-body">
+          <div class="project-num">// 03</div>
+          <div class="project-title">Autonomous Robot — RoboCup</div>
+          <div class="project-desc">Programmed a fully autonomous robot that took 1st place in the 2025 UC RoboCup Competition.</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Robotics</span></div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">04</div>
-        <div class="project-title">Solar Car — Buck Converter PCB</div>
-        <div class="project-desc">Designed a PCB using MOSFET switching to improve efficiency in the buck converter for UC's solar car. The improved design contributed to a 1st place finish in the 2025 UC Solar Car Challenge.</div>
-        <div class="project-tags">
-          <span class="tag hot">Winner</span>
-          <span class="tag">PCB Design</span>
-          <span class="tag">Power Electronics</span>
-          <span class="tag">MOSFET</span>
+      <div class="project-card" onclick="openLightbox('solarcar')">
+        <div class="project-cover-wrap">
+          <img src="solar_cover.jpg" alt="Solar Car" class="project-cover" />
+        </div>
+        <div class="project-body">
+          <div class="project-num">// 04</div>
+          <div class="project-title">Solar Car — Buck Converter PCB</div>
+          <div class="project-desc">Designed a PCB with MOSFET switching to improve buck converter efficiency. 1st place result.</div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">PCB Design</span><span class="tag">Power Electronics</span></div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">05</div>
-        <div class="project-title">Biomedical Engineering — Tonga</div>
-        <div class="project-desc">Part of an 8-person UC team deployed to Vaiola Hospital, Tonga. Diagnosed and repaired medical autoclaves with zero spare parts, increasing operational units on the main island from one to six.</div>
-        <div class="project-tags">
-          <span class="tag">Field Engineering</span>
-          <span class="tag">Problem Solving</span>
-          <span class="tag">Low-Resource</span>
+      <div class="project-card" onclick="openLightbox('tonga')">
+        <div class="project-cover-wrap">
+          <img src="tonga_cover.jpg" alt="Tonga Biomedical" class="project-cover" />
         </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">06</div>
-        <div class="project-title">Industrial Fabrication</div>
-        <div class="project-desc">Full-time sheet metal fabrication role at Stringer Fabricators. Operated CNC laser cutters, press brakes, lathes, and mills. Interpreted engineering drawings and manufactured components to specification for commercial clients.</div>
-        <div class="project-tags">
-          <span class="tag">CNC Machining</span>
-          <span class="tag">Fabrication</span>
-          <span class="tag">Engineering Drawing</span>
+        <div class="project-body">
+          <div class="project-num">// 05</div>
+          <div class="project-title">Biomedical Engineering — Tonga</div>
+          <div class="project-desc">Deployed to Vaiola Hospital, Tonga. Increased operational autoclaves on the main island from one to six.</div>
+          <div class="project-tags"><span class="tag">Field Engineering</span><span class="tag">Problem Solving</span><span class="tag">Low-Resource</span></div>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- LIGHTBOXES -->
+
+  <div class="lightbox" id="lb-accumulator">
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLightbox('accumulator')">✕ Close</button>
+      <img src="ucm_cover.jpg" class="lb-hero-img" alt="Accumulator" />
+      <div class="lb-content">
+        <div class="lb-tag">// UCM — 2026 — In Progress</div>
+        <div class="lb-title">600V Pouch Cell Accumulator</div>
+        <div class="lb-body">
+          <p>As Electrical Team Lead for UC Motorsport, I am pioneering the <strong>first pouch cell accumulator ever used in a UCM electric race car</strong>. This is a significant departure from the cylindrical cell format used in previous years and represents a step-change in energy density and packaging flexibility.</p>
+          <h4>The Challenge</h4>
+          <p>Pouch cells offer superior energy density but require more careful mechanical design — they're more susceptible to swelling and need robust clamping systems. Designing a pack that is structurally sound, thermally managed, and competition-legal at <strong>600V</strong> with no precedent at UCM made this a first-principles engineering challenge.</p>
+          <h4>My Role</h4>
+          <p>I am responsible for cell selection, module layout, BMS integration, electrical isolation, and the overall pack architecture. The vehicle will compete internationally in <strong>China and Australia</strong> in 2026.</p>
+        </div>
+        <div class="lb-specs">
+          <div class="lb-spec"><div class="lb-spec-label">Voltage</div><div class="lb-spec-val">600V nominal</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Cell Format</div><div class="lb-spec-val">Pouch cell (first at UCM)</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Status</div><div class="lb-spec-val">In development — 2026</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Competition</div><div class="lb-spec-val">China &amp; Australia</div></div>
+        </div>
+        <div class="lb-imgs">
+          <img src="ucm_2.jpg" alt="Module detail" />
+          <img src="ucm_3.jpg" alt="Clamping system" />
+          <img src="ucm_4.jpg" alt="Closer look" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lb-formulastudent">
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLightbox('formulastudent')">✕ Close</button>
+      <img src="fs_cover.jpg" class="lb-hero-img" alt="Formula Student — car at scrutineering" />
+      <div class="lb-content">
+        <div class="lb-tag">// Formula Student Australasia — 1st Place 2025</div>
+        <div class="lb-title">Formula Student<br>Australasia 2025</div>
+        <div class="lb-body">
+          <p>In 2025, UC Motorsport took <strong>1st Place at the Formula Student Australasia Competition</strong> — the result of a full year of design, build, late nights, and an entire team refusing to accept anything less than competition-ready.</p>
+          <h4>Scrutineering</h4>
+          <p>Scrutineering is where Formula Student is won or lost before a wheel turns. Every electrical system — high-voltage interlocks, insulation resistance, shutdown circuits, harness routing — must pass rigorous technical inspection by competition officials. Any fault means the car can't race.</p>
+          <p>In the lead-up to and during competition, I led the electrical team through <strong>long nights in the workshop</strong> diagnosing issues, chasing faults, and getting every system to standard. The pressure is real — there's no hiding a half-finished car at scrutineering. We passed. The car ran. We won.</p>
+          <h4>My Electrical Scope</h4>
+          <p>Full electrical architecture: high-voltage tractive system design, harness layout and build, interlock circuits, BMS integration, and on-site fault diagnosis during competition. Race day demands you solve problems in minutes that would normally take days.</p>
+          <h4>The Result</h4>
+          <p>1st place overall against university teams from across Australia and New Zealand — and the foundation for the 2026 electric programme now underway.</p>
+        </div>
+        <div class="lb-specs">
+          <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place Overall</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Competition</div><div class="lb-spec-val">Formula Student Australasia</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Role</div><div class="lb-spec-val">Electrical Team Lead</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
+        </div>
+        <div class="lb-imgs">
+          <img src="fs_workshop.jpg" alt="Late night electrical work on the high voltage system" />
+          <img src="fs_raceday.jpg" alt="UCM E13 at Calder Park during rain testing" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lb-robocup">
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLightbox('robocup')">✕ Close</button>
+      <img src="robocup_cover.jpg" class="lb-hero-img" alt="RoboCup Robot" />
+      <div class="lb-content">
+        <div class="lb-tag">// UC RoboCup — 1st Place 2025</div>
+        <div class="lb-title">Autonomous Robot<br>RoboCup 2025</div>
+        <div class="lb-body">
+          <p>Designed and programmed a fully <strong>autonomous robot in Python and C</strong> that navigated dynamic environments, avoided obstacles, and completed competition tasks without human input — taking 1st place in the 2025 UC RoboCup Competition.</p>
+          <h4>Technical Approach</h4>
+          <p>The robot used front-mounted proximity sensors for obstacle detection and real-time path replanning. The navigation algorithm was tuned iteratively through competition rounds. In the final, a <strong>last-minute software modification</strong> to the navigation stack directly contributed to the winning run.</p>
+          <h4>Key Skills Demonstrated</h4>
+          <p>Embedded C programming, Python control logic, sensor integration, real-time decision making, and the ability to iterate under competition pressure.</p>
+        </div>
+        <div class="lb-specs">
+          <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Languages</div><div class="lb-spec-val">Python, C</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Type</div><div class="lb-spec-val">Fully Autonomous</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
+        </div>
+        <div class="lb-imgs">
+          <img src="robocup_2.jpg" alt="Front sensors" />
+          <img src="robocup_3.jpg" alt="Plastic sort task" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lb-solarcar">
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLightbox('solarcar')">✕ Close</button>
+      <img src="solar_cover.jpg" class="lb-hero-img" alt="Solar Car" />
+      <div class="lb-content">
+        <div class="lb-tag">// UC Solar Car Challenge — 1st Place 2025</div>
+        <div class="lb-title">Solar Car<br>Buck Converter PCB</div>
+        <div class="lb-body">
+          <p>Designed a custom PCB for the power management system of UC's solar car entry in the 2025 Solar Car Challenge. Our team's key innovation was using <strong>MOSFET switching to improve efficiency in the buck converter</strong> — a design choice that outperformed other teams' approaches and contributed directly to the 1st place result.</p>
+          <h4>PCB Design</h4>
+          <p>The design involved selecting appropriate MOSFETs for the switching topology, laying out the PCB to minimise parasitic inductance in the switching loop, and validating the design through simulation and physical testing. The efficiency gain over a diode-based approach was measurable and meaningful at competition scale.</p>
+          <h4>Key Skills</h4>
+          <p>PCB layout and design, power electronics, MOSFET selection and gate drive, schematic capture, and physical prototyping and testing.</p>
+        </div>
+        <div class="lb-specs">
+          <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Focus</div><div class="lb-spec-val">Buck Converter PCB</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Innovation</div><div class="lb-spec-val">MOSFET switching topology</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Year</div><div class="lb-spec-val">2025</div></div>
+        </div>
+        <div class="lb-imgs">
+          <img src="solar_2.jpg" alt="Solar car" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lb-tonga">
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLightbox('tonga')">✕ Close</button>
+      <img src="tonga_cover.jpg" class="lb-hero-img" alt="Tonga" />
+      <div class="lb-content">
+        <div class="lb-tag">// Vaiola Hospital, Tonga — Nov 2025 – Feb 2026</div>
+        <div class="lb-title">Biomedical Engineering<br>Tonga</div>
+        <div class="lb-body">
+          <p>Deployed as part of an <strong>8-person UC biomedical engineering team</strong> to strengthen healthcare infrastructure in Tonga, working directly with staff at Vaiola Hospital and local clinics over a month-long placement.</p>
+          <h4>The Problem</h4>
+          <p>Vaiola Hospital had only <strong>one functioning autoclave</strong> on the main island — the sterilisation equipment critical for surgical safety. Multiple units had failed over time with no spare parts available and limited technical support in-country.</p>
+          <h4>The Solution</h4>
+          <p>Through systematic fault diagnosis, creative improvisation, and close collaboration with Tongan biomedical technicians, we increased the number of operational autoclaves from <strong>one to six</strong>. Every repair had to be sustainable — designed to be maintained by local staff long after we left.</p>
+          <h4>What It Taught Me</h4>
+          <p>Engineering in a zero-resource environment strips away every comfort. You can't order parts, you can't Google the fix, and the stakes are real. It taught me more about problem-solving and resourcefulness than any lab ever could.</p>
+        </div>
+        <div class="lb-specs">
+          <div class="lb-spec"><div class="lb-spec-label">Location</div><div class="lb-spec-val">Vaiola Hospital, Tonga</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Duration</div><div class="lb-spec-val">1 month placement</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Outcome</div><div class="lb-spec-val">1 → 6 operational autoclaves</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Team</div><div class="lb-spec-val">8-person UC engineering team</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- EXPERIENCE -->
   <section id="experience" style="background: var(--bg2);">
     <div class="section-label reveal">// 03 — Experience</div>
     <h2 class="section-title reveal">Work History</h2>
     <div class="exp-list reveal">
-
       <div class="exp-item">
         <div class="exp-date">Nov 2025 – Feb 2026</div>
         <div class="exp-content">
@@ -868,7 +545,6 @@
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-date">Nov 2024 – Feb 2025</div>
         <div class="exp-content">
@@ -881,7 +557,6 @@
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-date">Nov 2023 – Feb 2024</div>
         <div class="exp-content">
@@ -893,7 +568,6 @@
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -902,55 +576,22 @@
     <div class="section-label reveal">// 04 — Skills</div>
     <h2 class="section-title reveal">Technical<br>Capabilities</h2>
     <div class="skills-grid reveal">
-
       <div>
         <div class="skill-group-title">Engineering</div>
-        <div class="skill-item">
-          <span class="skill-name">High-Voltage Battery Systems</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">PCB Design &amp; Layout</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">CNC Machining / Fabrication</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Electrical Harness Design</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Embedded Systems</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
-        </div>
+        <div class="skill-item"><span class="skill-name">High-Voltage Battery Systems</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">PCB Design &amp; Layout</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">CNC Machining / Fabrication</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Electrical Harness Design</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Embedded Systems</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div></div>
       </div>
-
       <div>
         <div class="skill-group-title">Software &amp; Tools</div>
-        <div class="skill-item">
-          <span class="skill-name">Python</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">C Programming</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Control Theory</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Deep Learning / AI</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Engineering Drawing</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">C Programming</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Control Theory</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Deep Learning / AI</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Engineering Drawing</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div></div>
       </div>
-
     </div>
   </section>
 
@@ -960,44 +601,29 @@
     <h2 class="section-title reveal">Get In<br>Touch</h2>
     <div class="contact-grid reveal">
       <div>
-        <p class="contact-intro">
-          I'm currently completing my final year at UC and actively looking for graduate mechanical and mechatronics engineering roles — particularly in the automotive and motorsport space. Feel free to reach out.
-        </p>
+        <p class="contact-intro">I'm currently completing my final year at UC and actively looking for graduate mechanical and mechatronics engineering roles — particularly in the automotive and motorsport space. Feel free to reach out.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:joshkbergerson@gmail.com" class="contact-link">
-          <div>
-            <div class="contact-link-label">Email</div>
-            <div class="contact-link-val">joshkbergerson@gmail.com</div>
-          </div>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val">joshkbergerson@gmail.com</div></div>
           <span class="arrow">→</span>
         </a>
         <a href="https://www.linkedin.com/in/joshbergerson" target="_blank" class="contact-link">
-          <div>
-            <div class="contact-link-label">LinkedIn</div>
-            <div class="contact-link-val">linkedin.com/in/joshbergerson</div>
-          </div>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/joshbergerson</div></div>
           <span class="arrow">→</span>
         </a>
         <a href="tel:02721093730" class="contact-link">
-          <div>
-            <div class="contact-link-label">Phone</div>
-            <div class="contact-link-val">027 210 9730</div>
-          </div>
+          <div><div class="contact-link-label">Phone</div><div class="contact-link-val">027 210 9730</div></div>
           <span class="arrow">→</span>
         </a>
         <a href="#" class="contact-link">
-          <div>
-            <div class="contact-link-label">Location</div>
-            <div class="contact-link-val">Christchurch, New Zealand</div>
-          </div>
+          <div><div class="contact-link-label">Location</div><div class="contact-link-val">Christchurch, New Zealand</div></div>
           <span class="arrow">→</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="left">© 2026 Josh Bergerson — Built with HTML/CSS</div>
     <div class="right">Mechatronics · UCM · Christchurch NZ</div>
@@ -1013,8 +639,36 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(id) {
+      document.getElementById('lb-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(id) {
+      document.getElementById('lb-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close on backdrop click
+    document.querySelectorAll('.lightbox').forEach(lb => {
+      lb.addEventListener('click', function(e) {
+        if (e.target === lb) {
+          lb.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.lightbox.open').forEach(lb => {
+          lb.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
   </script>
 </body>
 </html>

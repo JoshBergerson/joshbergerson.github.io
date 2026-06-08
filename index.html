@@ -61,7 +61,7 @@
     .section-title .grey-word { color: var(--grey-lt); }
 
     /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 5rem; align-items: start; }
+    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; }
     .about-photo-wrap { position: relative; flex-shrink: 0; }
     .about-photo { width: 100%; display: block; filter: grayscale(10%) contrast(1.05); aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
     .about-photo-border { position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px; border: 1.5px solid var(--navy-mid); z-index: -1; }
@@ -302,6 +302,10 @@
     .exp-item-last .exp-timeline-line { display: none; }
     .exp-timeline-content { padding-left: 1.2rem; padding-bottom: 2.5rem; }
     .exp-item-last .exp-timeline-content { padding-bottom: 0; }
+
+    .about-intro { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.8rem, 5.5vw, 5.5rem); line-height: 1.05; color: var(--black); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .about-intro .teal { color: var(--black); }
+    .about-text .body-text { font-size: 1.15rem; color: var(--black); line-height: 1.82; margin-bottom: 1.25rem; font-weight: 400; }
 </style>
 </head>
 <body>
@@ -350,16 +354,18 @@
   <!-- ABOUT (white) -->
   <section id="about">
     <div class="section-label reveal">// 00  About</div>
-    <h2 class="section-title reveal">Mechatronics<br>Engineer</h2>
-    <div class="about-grid reveal">
+    <div class="about-grid reveal" style="align-items: start;">
+
+      <!-- LEFT: photo only -->
       <div class="about-photo-wrap">
         <img src="profile.jpg" alt="Josh Bergerson" class="about-photo" />
         <div class="about-photo-border"></div>
       </div>
-      <div class="about-text">
-        <p>I'm a fourth-year Mechatronics Engineering student at the University of Canterbury, Christchurch  targeting graduate and internship roles in mechanical and automotive engineering.</p>
-        <p>I lead the electrical team at UC Motorsport, where we took <strong>1st place at Formula Student Australasia 2025</strong> and are now building a 600V pouch cell accumulator for international competition. Outside of motorsport I've worked in industrial fabrication, built autonomous robots, and spent a month engineering in Tonga with zero spare parts.</p>
-        <p>I thrive in hands-on, high-ownership environments where the work actually matters.</p>
+
+      <!-- RIGHT: big text + details below -->
+      <div style="padding-top: 0.25rem;">
+        <p class="about-intro">I'm an <span class="teal">ambitious engineer</span> who builds real things and takes on hard problems.</p>
+        <p style="font-size: 1.12rem; line-height: 1.85; color: var(--black); margin-bottom: 2rem;">From leading the high-voltage electrical system of a Formula Student race car to fixing broken autoclaves in Tonga with no spare parts, I find a way to deliver. My experience spans EV systems, embedded software, PCB design, and hands-on fabrication. I work best where the stakes are real and the problems haven't been solved yet.</p>
         <div class="about-details">
           <div class="about-detail"><span class="detail-label">Degree</span><span class="detail-val">BE (Hons) Mechatronics, UC</span></div>
           <div class="about-detail"><span class="detail-label">GPA</span><span class="detail-val">7.72 / 9.0</span></div>
@@ -367,6 +373,7 @@
           <div class="about-detail"><span class="detail-label">Available</span><span class="detail-val">Graduate roles &amp; internships, 2026</span></div>
         </div>
       </div>
+
     </div>
   </section>
 

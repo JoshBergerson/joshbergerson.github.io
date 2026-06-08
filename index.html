@@ -79,9 +79,9 @@
     .moto-main p strong { color: var(--navy); font-weight: 600; }
     .moto-skills { margin-top: 1.75rem; }
     .moto-skills-title { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--black); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-    .moto-pills { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
-    .pill { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--black); padding: 0.15rem 0.8rem 0.15rem 0; background: none; }
-    .pill + .pill { padding-left: 0.8rem; border-left: 1.5px solid #c0c0ba; }
+    .moto-pills { display: flex; flex-wrap: wrap; gap: 0.5rem 0; align-items: center; }
+    .pill { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--black); padding: 0.15rem 0.8rem; background: var(--bg2); border: 1px solid var(--border); }
+    
     .moto-side { padding-left: 4rem; display: flex; flex-direction: column; gap: 1.25rem; }
     .moto-badge { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid #0f6e56; padding: 1.2rem 1.4rem; }
     .moto-badge-title { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--black); margin-bottom: 0.4rem; }
@@ -283,6 +283,25 @@
     .lb-specs-teal .lb-spec:nth-child(odd) { border-right: 1px solid #0d5c48; }
     .lb-specs-teal .lb-spec-label { color: rgba(255,255,255,0.75); font-size: 0.85rem; }
     .lb-specs-teal .lb-spec-val { color: #ffffff; font-size: 1.15rem; font-weight: 700; }
+
+    /* SKILLS BOXES */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .skill-box { background: var(--white); border: 1px solid var(--border); padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; cursor: default; }
+    .skill-box:hover { border-color: #0f6e56; transform: translateY(-2px); }
+    .skill-box-title { font-family: "Barlow", sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: #0f6e56; margin-bottom: 1rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag { font-size: 0.92rem; color: var(--black); background: var(--bg); border: 1px solid var(--border); padding: 0.3rem 0.75rem; transition: background 0.15s, border-color 0.15s, color 0.15s; cursor: default; }
+    .skill-tag:hover { background: #0f6e56; color: #fff; border-color: #0f6e56; }
+
+    /* EXPERIENCE TIMELINE */
+    .exp-timeline { display: grid; grid-template-columns: 180px 24px 1fr; gap: 0 0; }
+    .exp-timeline-date { font-family: "Barlow", sans-serif; font-weight: 600; font-size: 1rem; color: var(--black); text-align: right; padding-right: 1.2rem; padding-top: 0.15rem; }
+    .exp-timeline-spine { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .exp-timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: #0f6e56; flex-shrink: 0; margin-top: 0.25rem; z-index: 1; }
+    .exp-timeline-line { width: 2px; background: var(--border); flex: 1; margin-top: 4px; }
+    .exp-item-last .exp-timeline-line { display: none; }
+    .exp-timeline-content { padding-left: 1.2rem; padding-bottom: 2.5rem; }
+    .exp-item-last .exp-timeline-content { padding-bottom: 0; }
 </style>
 </head>
 <body>
@@ -413,7 +432,7 @@
           <div class="project-num">// 03</div>
           <div class="project-title">RoboCup Winning Robot</div>
           <div class="project-desc">Programmed a fully autonomous robot that took 1st place in the 2025 UC RoboCup Competition.</div>
-          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">Robotics</span></div>
+          <div class="project-tags"><span class="tag hot">Winner 2025</span><span class="tag">C</span><span class="tag">Robotics</span></div>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('formulastudent')">
@@ -514,7 +533,7 @@
         <div class="lb-specs lb-specs-teal">
           <div class="lb-spec"><div class="lb-spec-label">Result</div><div class="lb-spec-val">1st Place</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Snitch captures</div><div class="lb-spec-val">3/7 rounds (3× best)</div></div>
-          <div class="lb-spec"><div class="lb-spec-label">Languages</div><div class="lb-spec-val">Python / C</div></div>
+          <div class="lb-spec"><div class="lb-spec-label">Languages</div><div class="lb-spec-val">C</div></div>
           <div class="lb-spec"><div class="lb-spec-label">Team size</div><div class="lb-spec-val">3 students</div></div>
         </div>
         <div class="lb-imgs">
@@ -585,42 +604,45 @@
   <section id="experience">
     <div class="section-label reveal">// 03  Experience</div>
     <h2 class="section-title reveal">Work<br>History</h2>
-    <div class="exp-list reveal">
-      <div class="exp-item">
-        <div class="exp-date">Nov 2025  Feb 2026</div>
-        <div class="exp-content">
-          <div class="exp-role">Biomedical Technician</div>
-          <div class="exp-company">University of Canterbury / Vaiola Hospital, Tonga</div>
-          <ul class="exp-bullets">
-            <li>Deployed as part of an 8-person engineering team to strengthen healthcare infrastructure in Tonga.</li>
-            <li>Increased functional autoclaves on the main island from one to six through repair and creative problem-solving with zero spare parts available.</li>
-            <li>Collaborated with Tongan biomedical technicians to ensure solutions were practical and sustainable long-term.</li>
-          </ul>
-        </div>
+            <div class="exp-timeline reveal">
+
+      <!-- Tonga -->
+      <div class="exp-timeline-date">Nov 2025 - Feb 2026</div>
+      <div class="exp-timeline-spine"><div class="exp-timeline-dot"></div><div class="exp-timeline-line"></div></div>
+      <div class="exp-timeline-content">
+        <div class="exp-role">Biomedical Technician</div>
+        <div class="exp-company">University of Canterbury / Vaiola Hospital, Tonga</div>
+        <ul class="exp-bullets">
+          <li>Deployed as part of an 8-person UC team to improve healthcare infrastructure with limited resources and no spare parts supply chain.</li>
+          <li>Increased functional autoclaves on the main island from one to six through repair and creative problem-solving with zero spare parts available.</li>
+          <li>Collaborated with Tongan biomedical technicians to ensure solutions were practical and sustainable long-term.</li>
+        </ul>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">Nov 2024  Feb 2025</div>
-        <div class="exp-content">
-          <div class="exp-role">Sheet Metal Worker</div>
-          <div class="exp-company">Stringer Fabricators Ltd / Christchurch</div>
-          <ul class="exp-bullets">
-            <li>Full-time fabrication role manufacturing components for private and commercial clients.</li>
-            <li>Operated and maintained an industrial CNC laser cutter, performing routine maintenance and fault diagnosis.</li>
-            <li>Developed proficiency with CNC press brakes, lathes, mills, and power tools. Interpreted engineering drawings and produced parts to specification.</li>
-          </ul>
-        </div>
+
+      <!-- Stringer -->
+      <div class="exp-timeline-date">Nov 2024 - Feb 2025</div>
+      <div class="exp-timeline-spine"><div class="exp-timeline-dot"></div><div class="exp-timeline-line"></div></div>
+      <div class="exp-timeline-content">
+        <div class="exp-role">Sheet Metal Worker</div>
+        <div class="exp-company">Stringer Fabricators Ltd, Christchurch</div>
+        <ul class="exp-bullets">
+          <li>Full-time fabrication role manufacturing components for private and commercial clients.</li>
+          <li>Operated and maintained an industrial CNC laser cutter, press brakes, lathes, mills, and power tools. Interpreted engineering drawings and produced parts to specification.</li>
+        </ul>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">Nov 2023  Feb 2024</div>
-        <div class="exp-content">
-          <div class="exp-role">Scaffolder</div>
-          <div class="exp-company">Impact Scaffolding Solutions Ltd / Palmerston North</div>
-          <ul class="exp-bullets">
-            <li>Delivered scaffolding solutions across new-build construction, residential, and commercial sites throughout the North Island.</li>
-            <li>Adapted quickly between ground-man and builder roles as requirements changed on site.</li>
-          </ul>
-        </div>
+
+      <!-- Scaffolding -->
+      <div class="exp-timeline-date exp-item-last">Nov 2023 - Feb 2024</div>
+      <div class="exp-timeline-spine exp-item-last"><div class="exp-timeline-dot"></div><div class="exp-timeline-line"></div></div>
+      <div class="exp-timeline-content exp-item-last">
+        <div class="exp-role">Scaffolder</div>
+        <div class="exp-company">Impact Scaffolding Solutions Ltd, Palmerston North</div>
+        <ul class="exp-bullets">
+          <li>Delivered scaffolding solutions across new-build construction, residential, and commercial sites throughout the North Island.</li>
+          <li>Adapted quickly between ground-man and builder roles as requirements changed on site.</li>
+        </ul>
       </div>
+
     </div>
   </section>
 
@@ -628,23 +650,76 @@
   <section id="skills">
     <div class="section-label reveal">// 04  Skills</div>
     <h2 class="section-title reveal">Technical<br>Capabilities</h2>
-    <div class="skills-grid reveal">
-      <div>
-        <div class="skill-group-title">Engineering</div>
-        <div class="skill-item">High-Voltage Battery Systems</div>
-        <div class="skill-item">PCB Design &amp; Layout</div>
-        <div class="skill-item">CNC Machining / Fabrication</div>
-        <div class="skill-item">Electrical Harness Design</div>
-        <div class="skill-item">Embedded Systems</div>
-        <div class="skill-item">CAD / Solid Modelling</div>
+        <div class="skills-grid reveal">
+
+      <div class="skill-box">
+        <div class="skill-box-title">Software &amp; Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C / C++</span>
+          <span class="skill-tag">Deep Learning / AI</span>
+          <span class="skill-tag">Control Theory</span>
+          <span class="skill-tag">State-Machine Architecture</span>
+          <span class="skill-tag">Embedded Systems</span>
+        </div>
       </div>
-      <div>
-        <div class="skill-group-title">Software &amp; Tools</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">C Programming</div>
-        <div class="skill-item">Deep Learning / AI</div>
-        <div class="skill-item">Control Theory</div>        <div class="skill-item">Engineering Drawing</div>
+
+      <div class="skill-box">
+        <div class="skill-box-title">Hardware &amp; Electronics</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PCB Design (Altium / KiCad)</span>
+          <span class="skill-tag">High-Voltage Systems</span>
+          <span class="skill-tag">BMS Integration</span>
+          <span class="skill-tag">Electrical Harness Design</span>
+          <span class="skill-tag">Power Electronics</span>
+          <span class="skill-tag">Precharge Circuitry</span>
+        </div>
       </div>
+
+      <div class="skill-box">
+        <div class="skill-box-title">CAD &amp; Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">KiCad</span>
+          <span class="skill-tag">Altium Designer</span>
+          <span class="skill-tag">LTSpice</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-box-title">Fabrication</div>
+        <div class="skill-tags">
+          <span class="skill-tag">3D Printing</span>
+          <span class="skill-tag">Laser Cutting (CNC)</span>
+          <span class="skill-tag">Turning (Lathe)</span>
+          <span class="skill-tag">Milling</span>
+          <span class="skill-tag">Sheet Metal</span>
+          <span class="skill-tag">Press Brake</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-box-title">Systems Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">End-to-End System Design</span>
+          <span class="skill-tag">FS EV Regulations</span>
+          <span class="skill-tag">Rapid Prototyping</span>
+          <span class="skill-tag">Testing &amp; Validation</span>
+          <span class="skill-tag">Technical Documentation</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <div class="skill-box-title">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Team Leadership</span>
+          <span class="skill-tag">Cross-Cultural Communication</span>
+          <span class="skill-tag">Project Management</span>
+          <span class="skill-tag">Training Design</span>
+          <span class="skill-tag">Knowledge Transfer</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
